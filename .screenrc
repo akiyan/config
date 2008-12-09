@@ -1,0 +1,8 @@
+escape ^t^t
+hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+bind '-' exec screen -X eval split focus screen focus
+bind s
+startup_message off
+autodetach on
+defscrollback 10240
+defc1 off
