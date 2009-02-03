@@ -19,4 +19,4 @@ autocmd! BufRead,BufNewFile *.ctp set filetype=php
 set scrolloff=3
 set history=100
 set list
-set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
+"set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
