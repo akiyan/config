@@ -1,6 +1,6 @@
 set autoindent
 set smartindent
-"set number
+set number
 set ruler
 set nobackup
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
@@ -18,5 +18,5 @@ nmap <Tab> :tabn<CR>
 autocmd! BufRead,BufNewFile *.ctp set filetype=php
 set scrolloff=3
 set history=100
-set list
+"set list
 "set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
