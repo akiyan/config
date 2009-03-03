@@ -1,6 +1,6 @@
 set autoindent
 set smartindent
-set number
+"set number
 set ruler
 set nobackup
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
