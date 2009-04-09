@@ -1,5 +1,5 @@
-set autoindent
-set smartindent
+"set autoindent
+"set smartindent
 "set number
 set ruler
 set nobackup
