@@ -1,3 +1,4 @@
+syntax on
 set autoindent
 set smartindent
 set number
@@ -20,7 +21,7 @@ autocmd! BufRead,BufNewFile *.ctp set filetype=php
 set scrolloff=3
 set history=100
 set list
-set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<,eol:\
+set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<,eol:$
 set hidden
 set noswapfile
 set backspace=indent,eol,start
