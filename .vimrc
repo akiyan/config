@@ -1,5 +1,4 @@
 set autoindent
-set backspace=eol
 set smartindent
 set number
 set ruler
@@ -11,7 +10,8 @@ set nocompatible
 set incsearch
 set shiftwidth=2
 set expandtab
-set showmatch
+set showmatch "括弧をハイライト
+set showcmd
 set whichwrap=b,s,h,l,<,>,[,]
 set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
 set laststatus=2
@@ -21,3 +21,15 @@ set scrolloff=3
 set history=100
 set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<,eol:\
+set hidden
+set noswapfile
+set backspace=indent,eol,start
+set vb t_vb= "no beep
+set display=uhex
+set wildmenu
+set wildchar=<tab>
+set wildmode=list:full
+set ignorecase
+set hlsearch
+nnoremap j gj
+nnoremap k gk
