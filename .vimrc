@@ -15,7 +15,7 @@ set showcmd
 set whichwrap=b,s,h,l,<,>,[,]
 set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
 set laststatus=2
-"nmap <Tab> :tabn<CR>
+nmap <Tab> :tabn<CR>
 autocmd! BufRead,BufNewFile *.ctp set filetype=php
 set scrolloff=3
 set history=100
