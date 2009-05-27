@@ -17,11 +17,12 @@ set whichwrap=b,s,h,l,<,>,[,]
 set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
 set laststatus=2
 nmap <Tab> :tabn<CR>
+nmap <S-Tab> :tabp<CR>
 autocmd! BufRead,BufNewFile *.ctp set filetype=php
 set scrolloff=3
 set history=100
 set list
-set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<,eol:$
+set listchars=tab:>-,nbsp:%,extends:>,precedes:<,eol:$
 set hidden
 set noswapfile
 set backspace=indent,eol,start
@@ -32,7 +33,8 @@ set wildchar=<tab>
 set wildmode=list:full
 set ignorecase
 set hlsearch
-set mouse=a
-set ttymouse=xterm2
+'set mouse=a
+'set ttymouse=xterm2
+set formatoptions=q
 nnoremap j gj
 nnoremap k gk
