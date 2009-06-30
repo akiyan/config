@@ -33,8 +33,8 @@ set wildchar=<tab>
 set wildmode=list:full
 set ignorecase
 set hlsearch
-'set mouse=a
-'set ttymouse=xterm2
+"set mouse=a
+"set ttymouse=xterm2
 set formatoptions=q
 nnoremap j gj
 nnoremap k gk
