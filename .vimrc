@@ -33,6 +33,7 @@ set wildchar=<tab>
 set wildmode=list:full
 set ignorecase
 set hlsearch
+set ambiwidth=double
 "set mouse=a
 "set ttymouse=xterm2
 set formatoptions=q
