@@ -4,7 +4,7 @@ bind '-' exec screen -X eval split focus screen focus
 bind s
 startup_message off
 autodetach on
-defscrollback 10240
+defscrollback 3000
 defc1 off
 vbell off
 bell_msg "Bell in window"

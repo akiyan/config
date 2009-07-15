@@ -1,30 +1,46 @@
 syntax on
+
+" インデント
 set autoindent
 set smartindent
-set number
-set ruler
-set nobackup
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
-match ZenkakuSpace /　/
-set ts=4
-set nocompatible
-set incsearch
 set shiftwidth=2
-set expandtab
-set showmatch "括弧をハイライト
-set showcmd
-set whichwrap=b,s,h,l,<,>,[,]
+
+" 情報表示
+set number "行番号
+set ruler  "右下の行数表示
 set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
 set laststatus=2
+
+" 表示
+set showmatch "括弧をハイライト
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white "全角スペースをハイライト
+match ZenkakuSpace /　/
+set list
+set listchars=tab:>-,nbsp:%,extends:>,precedes:<,eol:$
+set display=lastline "画面最後の行をできる限り表示する。
+
+" 検索
+set incsearch     "インクリメンタルサーチ
+set hlsearch      "検索語句をハイライト
+set nowrapscan    "検索でファイル終端に来たら先頭に戻らない
+
+" バックアップ
+set nobackup
+set noswapfile
+
+" タブ文字の扱い
+set ts=4
+set expandtab
+
+set nocompatible
+set showcmd
+set whichwrap=b,s,h,l,<,>,[,]
 nmap <Tab> :tabn<CR>
 nmap <S-Tab> :tabp<CR>
 autocmd! BufRead,BufNewFile *.ctp set filetype=php
 set scrolloff=3
 set history=100
-set list
-set listchars=tab:>-,nbsp:%,extends:>,precedes:<,eol:$
 set hidden
-set noswapfile
 set backspace=indent,eol,start
 set vb t_vb= "no beep
 set display=uhex
@@ -32,10 +48,10 @@ set wildmenu
 set wildchar=<tab>
 set wildmode=list:full
 set ignorecase
-set hlsearch
 set ambiwidth=double
 "set mouse=a
 "set ttymouse=xterm2
 set formatoptions=q
-nnoremap j gj
-nnoremap k gk
+noremap j gj
+noremap k gk
+noremap <F-3> g&
