@@ -30,7 +30,7 @@ set nobackup
 set noswapfile
 
 " タブ文字の扱い
-set ts=4
+set ts=2
 set expandtab
 
 set nocompatible
@@ -53,6 +53,12 @@ set ambiwidth=double
 "set mouse=a
 "set ttymouse=xterm2
 set formatoptions=q
+
+" remap
 noremap j gj
 noremap k gk
 noremap <F-3> g&
+
+" xでバッファに格納しない
+nnoremap x "_x
+let g:yankring_n_keys = 'Y D'
