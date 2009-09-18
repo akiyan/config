@@ -36,8 +36,8 @@ set expandtab
 set nocompatible
 set showcmd
 set whichwrap=b,s,h,l,<,>,[,]
-nmap <Tab> :tabn<CR>
-nmap <S-Tab> :tabp<CR>
+nmap tn :tabn<CR>
+nmap tp :tabp<CR>
 autocmd! BufRead,BufNewFile *.ctp set filetype=php
 set scrolloff=3
 set history=100
