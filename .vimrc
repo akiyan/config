@@ -50,8 +50,8 @@ set wildchar=<tab>
 set wildmode=list:full
 set ignorecase
 set ambiwidth=double
-"set mouse=a
-"set ttymouse=xterm2
+set mouse=a
+set ttymouse=xterm2
 set formatoptions=q
 
 " remap
