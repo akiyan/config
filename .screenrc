@@ -5,6 +5,8 @@ termcapinfo xterm-256color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
 termcapinfo xterm-color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
 termcapinfo xterm* 'Co#256:pa#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
 escape ^Tt
+shelltitle "$ |zsh"
+#hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
 hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
 bind 's' exec screen -X eval split focus screen focus
 startup_message off

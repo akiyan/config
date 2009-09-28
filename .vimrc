@@ -19,6 +19,7 @@ set list
 set listchars=tab:>-,nbsp:%,extends:>,precedes:<,eol:$
 set display=lastline "画面最後の行をできる限り表示する。
 set t_Co=256 "256color
+colorscheme Dark2
 
 " 検索
 set incsearch     "インクリメンタルサーチ

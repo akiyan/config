@@ -1,4 +1,4 @@
-if [ "$TERM" = "screen" ]; then
+if [ "$TERM" = "xterm-256color" ]; then
     chpwd () { echo -n "_`dirs`\\" }
 
 
