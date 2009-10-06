@@ -59,6 +59,8 @@ set formatoptions=q
 noremap j gj
 noremap k gk
 noremap <F-3> g&
+inoremap <C-u>  <C-g>u<C-u>
+inoremap <C-w>  <C-g>u<C-w>
 
 " xでバッファに格納しない
 nnoremap x "_x
