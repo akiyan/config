@@ -112,7 +112,18 @@ bindkey '^Z' predict-off
 zstyle ':predict' verbose true
 
 PROMPT=$BLUE'[${USER}@${HOSTNAME}] %(!.#.$) '$WHITE
-RPROMPT=$GREEN'[%~]'$WHITE
+function git_branch() { 
+  local branch 
+ 
+  if test -z $(git rev-parse --git-dir 2> /dev/null); then 
+    branch='' 
+  else 
+    branch=" (${$(git symbolic-ref HEAD 2> /dev/null)#refs/heads/})" 
+  fi
+  echo -n "$branch" 
+} 
+#RPROMPT='$(git_branch)
+RPROMPT=$GREEN'[%~$(git_branch)]'$WHITE
 HISTFILE=$HOME/.zsh-history           # 履歴をファイルに保存する
 HISTSIZE=100000                       # メモリ内の履歴の数
 SAVEHIST=100000                       # 保存される履歴の数
