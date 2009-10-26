@@ -123,7 +123,7 @@ function git_branch() {
   echo -n "$branch" 
 } 
 #RPROMPT='$(git_branch)
-RPROMPT=$GREEN'[%~$(git_branch)]'$WHITE
+RPROMPT=$GREEN'[%~]$(git_branch)'$WHITE
 HISTFILE=$HOME/.zsh-history           # 履歴をファイルに保存する
 HISTSIZE=100000                       # メモリ内の履歴の数
 SAVEHIST=100000                       # 保存される履歴の数

@@ -49,7 +49,7 @@ set display=uhex
 set wildmenu
 set wildchar=<tab>
 set wildmode=list:full
-set ignorecase
+set smartcase
 set ambiwidth=double
 set mouse=a
 set ttymouse=xterm2
