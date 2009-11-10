@@ -39,7 +39,11 @@ set showcmd
 set whichwrap=b,s,h,l,<,>,[,]
 nmap tn :tabn<CR>
 nmap tp :tabp<CR>
+filetype on
+filetype plugin on
+filetype indent on
 autocmd! BufRead,BufNewFile *.ctp set filetype=php
+let php_folding = 1
 set scrolloff=3
 set history=100
 set hidden
