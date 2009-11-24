@@ -68,3 +68,7 @@ inoremap <C-w>  <C-g>u<C-w>
 " xでバッファに格納しない
 nnoremap x "_x
 let g:yankring_n_keys = 'Y D'
+
+" Visual mode で選択したテキストを*で検索する
+" http://vim-users.jp/2009/11/hack104/
+vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>

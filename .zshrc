@@ -50,7 +50,7 @@ alias s=screen
 alias l="ls -al"
 title () {echo -n "\e]0;$*\a"}
 setopt PROMPT_SUBST
-export LANG=en_US.UTF-8
+export LANG=ja_JP.UTF-8
 #export EDITOR=vim
 export SVN_EDITOR=vim
 export GIT_EDITOR=vim
