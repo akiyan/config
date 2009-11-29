@@ -72,3 +72,11 @@ let g:yankring_n_keys = 'Y D'
 " Visual mode で選択したテキストを*で検索する
 " http://vim-users.jp/2009/11/hack104/
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
+
+" encoding
+:set encoding=utf-8
+:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+
+" 前回終了したカーソル行に移動
+" via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif

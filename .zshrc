@@ -54,6 +54,7 @@ export LANG=ja_JP.UTF-8
 #export EDITOR=vim
 export SVN_EDITOR=vim
 export GIT_EDITOR=vim
+export PERL_BADLANG=0
 autoload -U compinit; compinit
 setopt append_history
 setopt auto_cd
