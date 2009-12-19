@@ -51,7 +51,7 @@ set vb t_vb= "no beep
 set display=uhex
 set wildmenu
 set wildchar=<tab>
-set wildmode=list:full
+set wildmode=longest,list
 set smartcase
 set ambiwidth=double
 set mouse=a
