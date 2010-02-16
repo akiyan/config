@@ -57,6 +57,7 @@ set ambiwidth=double
 set mouse=a
 set ttymouse=xterm2
 set formatoptions=q
+set virtualedit+=block
 
 " remap
 noremap j gj
