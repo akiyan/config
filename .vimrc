@@ -65,6 +65,7 @@ noremap k gk
 noremap <F-3> g&
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
+inoremap <C-f>  <C-x><C-o>
 
 " xでバッファに格納しない
 nnoremap x "_x
@@ -81,3 +82,11 @@ vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><C
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+" 自動で閉じタグ
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype php inoremap <buffer> </ </<C-x><C-o>
+augroup END
