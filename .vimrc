@@ -65,6 +65,7 @@ noremap k gk
 noremap <F-3> g&
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
+inoremap <C-f>  <C-x><C-o>
 
 " xでバッファに格納しない
 nnoremap x "_x
