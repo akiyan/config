@@ -42,6 +42,8 @@ nmap tp :tabp<CR>
 filetype on
 filetype plugin on
 autocmd! BufRead,BufNewFile *.ctp set filetype=php
+autocmd! BufRead,BufNewFile *.thtml set filetype=php
+autocmd! BufRead,BufNewFile *.t set filetype=perl
 "let php_folding = 1
 set scrolloff=3
 set history=100
@@ -77,16 +79,16 @@ vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><C
 
 " encoding
 :set encoding=utf-8
-:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+:set fileencodings=ucs-bom,utf-8,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,
 
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
 " 自動で閉じタグ
-augroup MyXML
-  autocmd!
-  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype php inoremap <buffer> </ </<C-x><C-o>
-augroup END
+"augroup MyXML
+"  autocmd!
+"  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+"  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+"  autocmd Filetype php inoremap <buffer> </ </<C-x><C-o>
+"augroup END
