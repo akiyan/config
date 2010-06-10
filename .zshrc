@@ -134,6 +134,7 @@ setopt extended_history               # 履歴ファイルに時刻を記録
 function history-all { history -E 1 } # 全履歴の一覧を出力する
 setopt share_history
 zstyle ':completion:*:default' menu select=1
+stty stop undef
 umask 002
 
 if [[ -f ~/.zshrc_local ]]; then
