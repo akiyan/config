@@ -1,0 +1,1 @@
+align.vga: call delete('/home/nn/.vim/plugin/AlignPlugin.vim')|call delete('/home/nn/.vim/plugin/AlignMapsPlugin.vim')|call delete('/home/nn/.vim/plugin/cecutil.vim')|call delete('/home/nn/.vim/doc/Align.txt')|call delete('/home/nn/.vim/autoload/Align.vim')|call delete('/home/nn/.vim/autoload/AlignMaps.vim')
