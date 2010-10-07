@@ -1,5 +1,11 @@
+[user]
+        email = akiyan@kau.li
+        name = akiyan
+[color]
+        ui = auto
 [alias]
 co = checkout
 br = branch
 st = status
 ci = commit
+mg = merge

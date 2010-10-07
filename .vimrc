@@ -1,3 +1,5 @@
+source $VIMRUNTIME/macros/matchit.vim
+
 syntax on
 
 " インデント
@@ -44,6 +46,7 @@ filetype plugin on
 autocmd! BufRead,BufNewFile *.ctp set filetype=php
 autocmd! BufRead,BufNewFile *.thtml set filetype=php
 autocmd! BufRead,BufNewFile *.t set filetype=perl
+autocmd FileType perl set ts=4
 "let php_folding = 1
 set scrolloff=3
 set history=100
@@ -92,3 +95,23 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 "  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 "  autocmd Filetype php inoremap <buffer> </ </<C-x><C-o>
 "augroup END
+"
+
+" neocomplcache
+"let g:neocomplcache_enable_at_startup = 1
+highlight Pmenu ctermbg=lightcyan ctermfg=black
+highlight PmenuSel ctermbg=blue ctermfg=black
+highlight PmenuSbar ctermbg=darkgray
+highlight PmenuThumb ctermbg=lightgray
+autocmd FileType php :set dictionary=~/.vim/dict/php.dict
+" 入力文字がこれ以上だと補完しない
+" デフォルトは5だけど当然PHPの関数名はそんなんじゃ収まらないからとりあえず増やしまくる
+let g:neocomplcache_max_try_keyword_length=100
+" 大文字小文字無視
+let g:neocomplcache_ignore_case=1
+" 大文字を最初に入力したら補完しない
+" let g:NeoComplCache_SmartCase=1
+" " 補完リストは最大100
+" let g:NeoComplCache_MaxList=1000
+" _ があっても補完する
+let g:neocomplcache_enable_underbar_completion=1
