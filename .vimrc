@@ -68,9 +68,11 @@ set virtualedit+=block
 noremap j gj
 noremap k gk
 noremap <F-3> g&
+noremap <C-s>  :w<Return>
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-f>  <C-x><C-o>
+inoremap <C-s>  <ESC>:w<Return>
 
 " xでバッファに格納しない
 nnoremap x "_x

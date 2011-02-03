@@ -44,6 +44,13 @@ if [ "$TERM" = "xterm-256color" ]; then
     }
     chpwd
 fi
+
+# fix ssh env
+if [ "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/auth_sock" ]; then
+  ln -fs $SSH_AUTH_SOCK $HOME/.ssh/auth_sock
+  export SSH_AUTH_SOCK=$HOME/.ssh/auth_sock
+fi
+
 alias lt="ls -trl"
 alias pd=popd
 alias s=screen
