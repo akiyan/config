@@ -119,6 +119,8 @@ zle -N predict-on
 zle -N predict-off
 bindkey '^X^Z' predict-on
 bindkey '^Z' predict-off
+#bindkey '^R' history-incremental-pattern-search-backward
+#bindkey '^S' history-incremental-pattern-search-forward
 zstyle ':predict' verbose true
 
 PROMPT=$BLUE'[${USER}@${HOSTNAME}] %(!.#.$) '$WHITE

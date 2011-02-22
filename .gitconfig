@@ -9,3 +9,9 @@ br = branch
 st = status
 ci = commit
 mg = merge
+
+# via http://d.hatena.ne.jp/yuroyoro/20101008
+# mergeの際にconflictが起きたファイルを編集
+edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim -p `f`"
+# mergeの際にconflictが起きたファイルをadd
+add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
