@@ -123,7 +123,8 @@ bindkey '^Z' predict-off
 #bindkey '^S' history-incremental-pattern-search-forward
 zstyle ':predict' verbose true
 
-PROMPT=$BLUE'[${USER}@${HOSTNAME}] %(!.#.$) '$WHITE
+#PROMPT=$BLUE'[${USER}@${HOSTNAME}] %(!.#.$) '$WHITE
+PROMPT=$BLUE'[${USER}@$%M] %(!.#.$) '$WHITE
 function git_branch() { 
   local branch 
  
