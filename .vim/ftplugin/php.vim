@@ -11,3 +11,4 @@ let php_parent_error_open = 1
 setlocal makeprg=php\ -l\ %
 setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
+source ~/.vim/plugin/cakephp.vim

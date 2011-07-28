@@ -777,7 +777,7 @@ function! s:RunGrep(cmd_name, grep_cmd, action, ...)
 
     " Add /dev/null to the list of filenames, so that grep print the
     " filename and linenumber when grepping in a single file
-    let filenames = filenames . " " . g:Grep_Null_Device
+    let filenames = filenames . " " . g:Grep_Null_Devicejjkjk:
     let cmd = grep_path . " " . grep_opt . " -n "
     let cmd = cmd . grep_expr_option . " " . pattern
     let cmd = cmd . " " . filenames

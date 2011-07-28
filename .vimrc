@@ -29,6 +29,8 @@ colorscheme desert256
 set incsearch     "インクリメンタルサーチ
 set hlsearch      "検索語句をハイライト
 set nowrapscan    "検索でファイル終端に来たら先頭に戻らない
+set ignorecase    "検索時大文字小文字無視
+set smartcase     "全て小文字なら無視、混在なら特定
 
 " バックアップ
 set nobackup
@@ -133,3 +135,11 @@ augroup vimrc-auto-mkdir  " {{{
   endfunction  " }}}
 augroup END  " }}}
 
+
+if 1 && filereadable($HOME . '/.vimrc_local')
+  unlet! g:vimrc_local_finish
+  source ~/.vimrc_local
+  if exists('g:vimrc_local_finish') && g:vimrc_local_finish != 0
+    finish
+  endif
+endif
