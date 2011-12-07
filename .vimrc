@@ -50,6 +50,7 @@ filetype plugin on
 autocmd! BufRead,BufNewFile *.ctp set filetype=php
 autocmd! BufRead,BufNewFile *.thtml set filetype=php
 autocmd! BufRead,BufNewFile *.t set filetype=perl
+autocmd! BufRead,BufNewFile *.less set filetype=css
 autocmd FileType perl set ts=4
 "let php_folding = 1
 set scrolloff=3
@@ -77,6 +78,7 @@ inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-f>  <C-x><C-o>
 inoremap <C-s>  <ESC>:w<Return>
+inoremap <C-TAB>  tn
 
 " xでバッファに格納しない
 nnoremap x "_x
@@ -134,6 +136,10 @@ augroup vimrc-auto-mkdir  " {{{
     endif
   endfunction  " }}}
 augroup END  " }}}
+
+" いいかんじにファイルをたどって開く
+" http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
+autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
 
 
 if 1 && filereadable($HOME . '/.vimrc_local')

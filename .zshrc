@@ -147,6 +147,8 @@ zstyle ':completion:*:default' menu select=1
 stty stop undef
 umask 002
 
+source .zsh/git-completion.bash
+
 if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local
 fi
