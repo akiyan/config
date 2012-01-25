@@ -5,15 +5,26 @@ set rtp+=~/.vim/vundle.git/    " (2)
 call vundle#rc()               " (3)
 
 Bundle 'Align'
-Bundle 'JavaScript-syntax'
-Bundle 'cake.vim'
+Bundle 'violetyk/cake.vim'
 Bundle 'grep.vim'
-Bundle 'neocomplcache'
+Bundle 'Shougo/neocomplcache'
+Bundle 'thinca/vim-ref'
 Bundle 'php.vim'
 Bundle 'php.vim-html-enhanced'
 Bundle 'php.vim-for-php5'
-Bundle 'surround.vim'
+Bundle 'tpope/vim-surround'
 Bundle 'taglist.vim'
+Bundle 'matchit.zip'
+
+" colorscheme
+Bundle 'desert256.vim'
+Bundle 'mrkn256.vim'
+Bundle 'twilight256.vim'
+
+" syntax
+Bundle 'JavaScript-syntax'
+Bundle 'jQuery'
+"
 
 " original repos on github
 " Bundle 'tpope/vim-fugitive'
@@ -25,8 +36,6 @@ Bundle 'taglist.vim'
 " Bundle 'git://git.wincent.com/command-t.git'
 "
 filetype plugin indent on     " (5)
-
-source $VIMRUNTIME/macros/matchit.vim
 
 syntax on
 
@@ -50,7 +59,6 @@ set list
 set listchars=tab:>-,nbsp:%,extends:>,precedes:<,eol:$
 set display=lastline "画面最後の行をできる限り表示する。
 set t_Co=256 "256color
-" colorscheme Dark2
 colorscheme desert256
 
 " 検索
@@ -67,6 +75,12 @@ set noswapfile
 " タブ文字の扱い
 set ts=2
 set expandtab
+
+" splitしたときに下に出す。
+set splitbelow
+
+" vsplitしたときに右に出す。
+set splitright
 
 set showcmd
 set whichwrap=b,s,h,l,<,>,[,]
@@ -86,13 +100,27 @@ set hidden
 set backspace=indent,eol,start
 set vb t_vb= "no beep
 set display=uhex
+
+" コマンドライン補完を拡張モードにする
 set wildmenu
 set wildchar=<tab>
 set wildmode=longest,list
+
+" 対応する括弧の表示時間を2にする
+set matchtime=2
+
+" matchit.vim用
+let b:match_words = "if:endif,foreach:endforeach,\<begin\>:\<end\>,\<?:?\>,\<?php,?\>"
+
 set smartcase
 set ambiwidth=double
 set mouse=a
+
+" 高速ターミナル接続を行う
+set ttyfast
+
 set ttymouse=xterm2
+
 set formatoptions=q
 set virtualedit+=block
 
@@ -176,3 +204,35 @@ if 1 && filereadable($HOME . '/.vimrc_local')
     finish
   endif
 endif
+
+
+" 入力モードの時にステータスラインの色を変える。
+let g:hi_insert = 'highlight StatusLine guifg=LightGrey guibg=darkblue gui=none ctermfg=white ctermbg=blue cterm=none'
+
+if has('syntax')
+augroup InsertHook
+  autocmd!
+  autocmd InsertEnter * call s:StatusLine('Enter')
+  autocmd InsertLeave * call s:StatusLine('Leave')
+augroup END
+endif
+
+let s:slhlcmd = ''
+function! s:StatusLine(mode)
+  if a:mode == 'Enter'
+    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+    silent exec g:hi_insert
+  else
+    highlight clear StatusLine
+    silent exec s:slhlcmd
+  endif
+endfunction
+
+function! s:GetHighlight(hi)
+  redir => hl
+  exec 'highlight '.a:hi
+  redir END
+  let hl = substitute(hl, '[\r\n]', '', 'g')
+  let hl = substitute(hl, 'xxx', '', '')
+  return hl
+endfunction
