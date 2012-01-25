@@ -1,3 +1,31 @@
+set nocompatible
+filetype off                   " (1)
+
+set rtp+=~/.vim/vundle.git/    " (2)
+call vundle#rc()               " (3)
+
+Bundle 'Align'
+Bundle 'JavaScript-syntax'
+Bundle 'cake.vim'
+Bundle 'grep.vim'
+Bundle 'neocomplcache'
+Bundle 'php.vim'
+Bundle 'php.vim-html-enhanced'
+Bundle 'php.vim-for-php5'
+Bundle 'surround.vim'
+Bundle 'taglist.vim'
+
+" original repos on github
+" Bundle 'tpope/vim-fugitive'
+"
+" " vim-scripts repos
+" Bundle 'rails.vim'
+"
+" " non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+"
+filetype plugin indent on     " (5)
+
 source $VIMRUNTIME/macros/matchit.vim
 
 syntax on
@@ -40,7 +68,6 @@ set noswapfile
 set ts=2
 set expandtab
 
-set nocompatible
 set showcmd
 set whichwrap=b,s,h,l,<,>,[,]
 nmap tn :tabn<CR>
