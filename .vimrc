@@ -4,7 +4,7 @@ filetype off                   " (1)
 set rtp+=~/.vim/vundle.git/    " (2)
 call vundle#rc()               " (3)
 
-Bundle 'Align'
+Bundle 'vim-scripts/Align'
 Bundle 'violetyk/cake.vim'
 Bundle 'grep.vim'
 Bundle 'Shougo/neocomplcache'
