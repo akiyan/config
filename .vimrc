@@ -10,8 +10,9 @@ Bundle 'grep.vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'thinca/vim-ref'
 Bundle 'php.vim'
-Bundle 'php.vim-html-enhanced'
-Bundle 'php.vim-for-php5'
+"Bundle 'shawncplus/phpcomplete.vim'
+"Bundle 'vim-scripts/php.vim-html-enhanced'
+"Bundle 'vim-scripts/php.vim-for-php5'
 Bundle 'tpope/vim-surround'
 Bundle 'taglist.vim'
 Bundle 'matchit.zip'
@@ -74,6 +75,7 @@ set noswapfile
 
 " タブ文字の扱い
 set ts=2
+set softtabstop=2
 set expandtab
 
 " splitしたときに下に出す。
@@ -123,6 +125,9 @@ set ttymouse=xterm2
 
 set formatoptions=q
 set virtualedit+=block
+
+" cake.vim
+let g:cakephp_enable_auto_mode = 1
 
 " remap
 noremap j gj
