@@ -123,23 +123,6 @@ bindkey '^Z' predict-off
 zstyle ':predict' verbose true
 
 # PROMPT
-
-#PROMPT=$BLUE'[${USER}@${HOSTNAME}] %(!.#.$) '$WHITE
-PROMPT=$BLUE'[${USER}@$%M] %(!.#.$) '$WHITE
-function git_branch() { 
-  local branch 
- 
-  if test -z $(git rev-parse --git-dir 2> /dev/null); then 
-    branch='' 
-  else 
-    branch=" (${$(git symbolic-ref HEAD 2> /dev/null)#refs/heads/})" 
-  fi
-  echo -n "$branch" 
-} 
-#RPROMPT='$(git_branch)
-#RPROMPT=$GREEN'[%~]$(git_branch)'$WHITE
-
-
 # zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する方法 - ess sup
 
 autoload -Uz add-zsh-hook
@@ -170,7 +153,10 @@ function _update_vcs_info_msg() {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 add-zsh-hook precmd _update_vcs_info_msg
-RPROMPT=$WHITE"[%~]"$GREEN"%1(v|%F{green}%1v%f|)"
+
+PROMPT="%{${fg[yellow]}%}[${USER}@$%M] %{${fg[white]}%}[%~] %1(v|%F{green}%1v%f|)
+%{${reset_color}%}%(!.#.$) "
+# RPROMPT=$GREEN"%1(v|%F{green}%1v%f|)"
 
 
 
