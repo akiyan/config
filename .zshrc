@@ -1,49 +1,48 @@
-if [ "$TERM" = "xterm-256color" ]; then
-    chpwd () { echo -n "_`dirs`\\" }
-
-
-    preexec() {
-        # see [zsh-workers:13180]
-        # http://www.zsh.org/mla/workers/2000/msg03993.html
-        emulate -L zsh
-        local -a cmd; cmd=(${(z)2})
-        case $cmd[1] in
-            fg)
-                if (( $#cmd == 1 )); then
-                    cmd=(builtin jobs -l %+)
-                else
-                    cmd=(builtin jobs -l $cmd[2])
-                fi
-                ;;
-            %*)
-                cmd=(builtin jobs -l $cmd[1])
-                ;;
-            cd)
-                if (( $#cmd == 2)); then
-                    cmd[1]=$cmd[2]
-                fi
-                ;&
-            *)
-                echo -n "k$cmd[1]:t\\"
-                prev=$cmd[1]
-                return
-                ;;
-        esac
-
-        local -A jt; jt=(${(kv)jobtexts})
-
-        $cmd >>(read num rest
-            cmd=(${(z)${(e):-\$jt$num}})
-            echo -n "k$cmd[1]:t\\") 2>/dev/null
-
-        prev=$cmd[1]
-    }
-    precmd() {
-        #local prev; prev=`history -1 | sed "s/^[ 0-9]*//" | sed "s/ .*$//"  `
-        echo -n "k$:$prev\\"
-    }
-    chpwd
-fi
+#if [ "$TERM" = "xterm-256color" ]; then
+#    chpwd () { echo -n "_`dirs`\\" }
+#
+#    preexec() {
+#        # see [zsh-workers:13180]
+#        # http://www.zsh.org/mla/workers/2000/msg03993.html
+#        emulate -L zsh
+#        local -a cmd; cmd=(${(z)2})
+#        case $cmd[1] in
+#            fg)
+#                if (( $#cmd == 1 )); then
+#                    cmd=(builtin jobs -l %+)
+#                else
+#                    cmd=(builtin jobs -l $cmd[2])
+#                fi
+#                ;;
+#            %*)
+#                cmd=(builtin jobs -l $cmd[1])
+#                ;;
+#            cd)
+#                if (( $#cmd == 2)); then
+#                    cmd[1]=$cmd[2]
+#                fi
+#                ;&
+#            *)
+#                echo -n "k$cmd[1]:t\\"
+#                prev=$cmd[1]
+#                return
+#                ;;
+#        esac
+#
+#        local -A jt; jt=(${(kv)jobtexts})
+#
+#        $cmd >>(read num rest
+#            cmd=(${(z)${(e):-\$jt$num}})
+#            echo -n "k$cmd[1]:t\\") 2>/dev/null
+#
+#        prev=$cmd[1]
+#    }
+#    precmd() {
+#        #local prev; prev=`history -1 | sed "s/^[ 0-9]*//" | sed "s/ .*$//"  `
+#        echo -n "k$:$prev\\"
+#    }
+#    chpwd
+#fi
 
 # fix ssh env
 if [ "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/auth_sock" ]; then
@@ -56,7 +55,7 @@ alias pd=popd
 alias s=screen
 alias l="ls -al"
 title () {echo -n "\e]0;$*\a"}
-setopt PROMPT_SUBST
+setopt prompt_subst
 export LANG=ja_JP.UTF-8
 #export EDITOR=vim
 export SVN_EDITOR=vim
@@ -123,6 +122,8 @@ bindkey '^Z' predict-off
 #bindkey '^S' history-incremental-pattern-search-forward
 zstyle ':predict' verbose true
 
+# PROMPT
+
 #PROMPT=$BLUE'[${USER}@${HOSTNAME}] %(!.#.$) '$WHITE
 PROMPT=$BLUE'[${USER}@$%M] %(!.#.$) '$WHITE
 function git_branch() { 
@@ -136,7 +137,44 @@ function git_branch() {
   echo -n "$branch" 
 } 
 #RPROMPT='$(git_branch)
-RPROMPT=$GREEN'[%~]$(git_branch)'$WHITE
+#RPROMPT=$GREEN'[%~]$(git_branch)'$WHITE
+
+
+# zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する方法 - ess sup
+
+autoload -Uz add-zsh-hook
+autoload -Uz colors
+colors
+autoload -Uz vcs_info
+
+#zstyle ':vcs_info:*' enable git svn hg bzr
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
+zstyle ':vcs_info:bzr:*' use-simple true
+
+autoload -Uz is-at-least
+if is-at-least 4.3.10; then
+  # この check-for-changes が今回の設定するところ
+  zstyle ':vcs_info:git:*' check-for-changes true
+  zstyle ':vcs_info:git:*' stagedstr "+"    # 適当な文字列に変更する
+  zstyle ':vcs_info:git:*' unstagedstr "-"  # 適当の文字列に変更する
+  zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
+  zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
+fi
+
+function _update_vcs_info_msg() {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+add-zsh-hook precmd _update_vcs_info_msg
+RPROMPT=$WHITE"[%~]"$GREEN"%1(v|%F{green}%1v%f|)"
+
+
+
+
 HISTFILE=$HOME/.zsh-history           # 履歴をファイルに保存する
 HISTSIZE=100000                       # メモリ内の履歴の数
 SAVEHIST=100000                       # 保存される履歴の数

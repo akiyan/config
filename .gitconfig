@@ -15,3 +15,5 @@ mg = merge
 edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim -p `f`"
 # mergeの際にconflictが起きたファイルをadd
 add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+[http]
+	sslVerify = false
