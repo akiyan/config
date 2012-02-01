@@ -7,15 +7,19 @@ call vundle#rc()               " (3)
 Bundle 'vim-scripts/Align'
 Bundle 'violetyk/cake.vim'
 Bundle 'grep.vim'
-Bundle 'Shougo/neocomplcache'
+if $SUDO_USER == ''
+  Bundle 'Shougo/neocomplcache'
+endif
 Bundle 'thinca/vim-ref'
 Bundle 'php.vim'
+Bundle 'nishigori/vim-php-dictionary'
 "Bundle 'shawncplus/phpcomplete.vim'
 "Bundle 'vim-scripts/php.vim-html-enhanced'
 "Bundle 'vim-scripts/php.vim-for-php5'
 Bundle 'tpope/vim-surround'
 Bundle 'taglist.vim'
 Bundle 'matchit.zip'
+Bundle 'motemen/git-vim'
 
 " colorscheme
 Bundle 'desert256.vim'

@@ -154,7 +154,7 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
-PROMPT="%{${fg[yellow]}%}[${USER}@$%M] %{${fg[white]}%}[%~] %1(v|%F{green}%1v%f|)
+PROMPT="%{${fg[yellow]}%}[${USER}@$%M] %{${fg[white]}%}%~ %1(v|%F{green}%1v%f|)
 %{${reset_color}%}%(!.#.$) "
 # RPROMPT=$GREEN"%1(v|%F{green}%1v%f|)"
 
