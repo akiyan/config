@@ -29,6 +29,15 @@ Bundle 'twilight256.vim'
 " syntax
 Bundle 'JavaScript-syntax'
 Bundle 'jQuery'
+
+" gf
+Bundle 'kana/vim-gf-user'
+Bundle 'kana/vim-gf-diff'
+
+" textobj
+Bundle 'kana/vim-textobj-user'
+Bundle 'akiyan/vim-textobj-php'
+
 "
 
 " original repos on github
@@ -112,11 +121,11 @@ set wildmenu
 set wildchar=<tab>
 set wildmode=longest,list
 
+" 対応する括弧の強調表示を停止
+let loaded_matchparen = 1
+
 " 対応する括弧の表示時間を2にする
 set matchtime=2
-
-" matchit.vim用
-let b:match_words = "if:endif,foreach:endforeach,\<begin\>:\<end\>,\<?:?\>,\<?php,?\>"
 
 set smartcase
 set ambiwidth=double
