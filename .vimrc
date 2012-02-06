@@ -108,7 +108,6 @@ autocmd! BufRead,BufNewFile *.thtml set filetype=php
 autocmd! BufRead,BufNewFile *.t set filetype=perl
 autocmd! BufRead,BufNewFile *.less set filetype=css
 autocmd FileType perl set ts=4
-"let php_folding = 1
 set scrolloff=3
 set history=100
 set hidden
@@ -116,13 +115,15 @@ set backspace=indent,eol,start
 set vb t_vb= "no beep
 set display=uhex
 
+set foldlevel=100
+
 " コマンドライン補完を拡張モードにする
 set wildmenu
 set wildchar=<tab>
 set wildmode=longest,list
 
 " 対応する括弧の強調表示を停止
-let loaded_matchparen = 1
+"let loaded_matchparen = 1
 
 " 対応する括弧の表示時間を2にする
 set matchtime=2
@@ -156,6 +157,18 @@ inoremap <C-TAB>  tn
 " xでバッファに格納しない
 nnoremap x "_x
 let g:yankring_n_keys = 'Y D'
+
+" php
+let php_sql_query = 1
+let php_baselib = 1
+let php_htmlInStrings = 1
+"let php_noShortTags = 0
+let php_parent_error_close = 1
+let php_parent_error_open = 1
+"let php_folding = 1
+"let php_sync_method = x
+
+
 
 " Visual mode で選択したテキストを*で検索する
 " http://vim-users.jp/2009/11/hack104/
