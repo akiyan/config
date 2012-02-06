@@ -11,7 +11,7 @@ if $SUDO_USER == ''
   Bundle 'Shougo/neocomplcache'
 endif
 Bundle 'thinca/vim-ref'
-Bundle 'php.vim'
+"Bundle 'php.vim'
 Bundle 'nishigori/vim-php-dictionary'
 "Bundle 'shawncplus/phpcomplete.vim'
 "Bundle 'vim-scripts/php.vim-html-enhanced'
@@ -29,6 +29,7 @@ Bundle 'twilight256.vim'
 " syntax
 Bundle 'JavaScript-syntax'
 Bundle 'jQuery'
+Bundle 'hail2u/vim-css3-syntax'
 
 " gf
 Bundle 'kana/vim-gf-user'
