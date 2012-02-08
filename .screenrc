@@ -15,4 +15,6 @@ defscrollback 3000
 defc1 off
 vbell off
 bell_msg "Bell in window"
+
+# http://moudamekamoshirenai.g.hatena.ne.jp/onumerane/20081113/1226599741
 cjkwidth on
