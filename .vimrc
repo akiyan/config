@@ -27,9 +27,11 @@ Bundle 'mrkn256.vim'
 Bundle 'twilight256.vim'
 
 " syntax
-Bundle 'JavaScript-syntax'
+"Bundle 'JavaScript-syntax'
+"Bundle 'javascript.vim'
 Bundle 'jQuery'
 Bundle 'hail2u/vim-css3-syntax'
+Bundle 'naberon/vim-cakehtml'
 
 " gf
 Bundle 'kana/vim-gf-user'
@@ -104,7 +106,7 @@ nmap tn :tabn<CR>
 nmap tp :tabp<CR>
 filetype on
 filetype plugin on
-autocmd! BufRead,BufNewFile *.ctp set filetype=php
+"autocmd! BufRead,BufNewFile *.ctp set filetype=php
 autocmd! BufRead,BufNewFile *.thtml set filetype=php
 autocmd! BufRead,BufNewFile *.t set filetype=perl
 autocmd! BufRead,BufNewFile *.less set filetype=css
