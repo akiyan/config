@@ -15,3 +15,4 @@ defscrollback 3000
 defc1 off
 vbell off
 bell_msg "Bell in window"
+cjkwidth on
