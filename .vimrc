@@ -161,6 +161,12 @@ inoremap <C-TAB>  tn
 nnoremap x "_x
 let g:yankring_n_keys = 'Y D'
 
+" CTRL-hjklでウィンドウ移動
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
 " php
 let php_sql_query = 1
 let php_baselib = 1
