@@ -147,10 +147,21 @@ if is-at-least 4.3.10; then
   zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
 fi
 
+#function _update_vcs_info_msg() {
+#    psvar=()
+#    LANG=en_US.UTF-8 vcs_info
+#    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+#}
 function _update_vcs_info_msg() {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+
+  # http://stnard.jp/2010/10/25/402/
+  if [[ -e $PWD/.git/refs/stash ]]; then
+    stashes=$(git stash list 2>/dev/null | wc -l)
+    psvar[2]=" @${stashes// /}"
+  fi
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
