@@ -282,7 +282,7 @@ endfunction
 "
 " yank to remote
 let g:y2r_config = {
-\   'tmp_file': '/tmp/exchange_file',
+\   'tmp_file': '/tmp/vim-exchange-file',
 \   'key_file': expand('$HOME') . '/.exchange.key',
 \   'host': 'localhost',
 \   'port': 52224,

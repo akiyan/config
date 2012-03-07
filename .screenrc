@@ -18,5 +18,5 @@ bell_msg "Bell in window"
 
 # ssh先screenのペーストバッファをクリップボードに貼り付ける - Keep It Simple, Stupid
 # http://yskwkzhr.blogspot.com/2011/04/copying-remote-screen-paste-buffer.html
-bufferfile '~/exchange-file'
-bind ^] eval 'writebuf' 'exec sh -c "cat ~/.exchange.key ~/exchange-file | nc -w1 localhost 52224"' 'echo "paste to remote"'
+bufferfile '/tmp/screen-exchange-file'
+bind ^] eval 'writebuf' 'exec sh -c "cat ~/.exchange.key /tmp/screen-exchange-file | nc -w1 localhost 52224"' 'echo "paste to remote"'
