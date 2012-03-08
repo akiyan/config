@@ -13,6 +13,7 @@ endif
 Bundle 'thinca/vim-ref'
 "Bundle 'php.vim'
 Bundle 'nishigori/vim-php-dictionary'
+Bundle 'PHP-correct-Indenting'
 "Bundle 'shawncplus/phpcomplete.vim'
 "Bundle 'vim-scripts/php.vim-html-enhanced'
 "Bundle 'vim-scripts/php.vim-for-php5'
