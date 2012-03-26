@@ -52,7 +52,7 @@ fi
 
 alias lt="ls -trl"
 alias pd=popd
-alias s=screen
+alias s=screen -U
 alias l="ls -al"
 title () {echo -n "\e]0;$*\a"}
 setopt prompt_subst
@@ -121,6 +121,14 @@ bindkey '^Z' predict-off
 #bindkey '^R' history-incremental-pattern-search-backward
 #bindkey '^S' history-incremental-pattern-search-forward
 zstyle ':predict' verbose true
+
+#zaw.zshで最近移動したディレクトリに移動する - Dive into the Tech World!
+#http://d.hatena.ne.jp/shiba_yu36/20120130/1327937835
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
 
 # PROMPT
 # zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する方法 - ess sup
