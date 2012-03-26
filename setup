@@ -1,0 +1,11 @@
+cd ~
+ln -s config/.gitconfig 
+ln -s config/.gitmodules 
+ln -s config/.screen
+ln -s config/.vim
+ln -s config/.vimrc
+ln -s config/.zsh
+ln -s config/.zshrc
+cd config
+git submodule init
+git submodule update
