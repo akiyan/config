@@ -21,7 +21,10 @@ Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'taglist.vim'
 Bundle 'matchit.zip'
+
+" git
 Bundle 'motemen/git-vim'
+Bundle 'tpope/vim-fugitive'
 
 " colorscheme
 Bundle 'desert256.vim'
@@ -42,6 +45,9 @@ Bundle 'kana/vim-gf-diff'
 " textobj
 Bundle 'kana/vim-textobj-user'
 Bundle 'akiyan/vim-textobj-php'
+
+" other
+Bundle 'glidenote/memolist.vim'
 
 "
 
@@ -67,7 +73,7 @@ set shiftwidth=2
 set number "行番号
 set ruler  "右下の行数表示
 " set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
-set statusline=%F%m%r%h%w\%=[%Y]\[%{&ff}]\[%{&fileencoding}]\[%l/%L]\[%v]
+set statusline=%F%m%r%h%w\%=[%Y]\[%{&ff}]\[%{&fileencoding}]%{fugitive#statusline()}\[%l/%L]\[%v]
 set laststatus=2
 
 " 表示
@@ -113,6 +119,7 @@ autocmd! BufRead,BufNewFile *.thtml set filetype=php
 autocmd! BufRead,BufNewFile *.t set filetype=perl
 autocmd! BufRead,BufNewFile *.less set filetype=css
 autocmd FileType perl set ts=4
+au QuickfixCmdPost make,grep,grepadd,vimgrep copen
 set scrolloff=3
 set history=100
 set hidden

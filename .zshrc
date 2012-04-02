@@ -52,7 +52,7 @@ fi
 
 alias lt="ls -trl"
 alias pd=popd
-alias s=screen -U
+alias s=screen
 alias l="ls -al"
 title () {echo -n "\e]0;$*\a"}
 setopt prompt_subst
