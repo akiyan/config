@@ -21,6 +21,8 @@ Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'taglist.vim'
 Bundle 'matchit.zip'
+Bundle 'vim-scripts/YankRing.vim'
+Bundle 'sjl/clam.vim'
 
 " git
 Bundle 'motemen/git-vim'
@@ -34,6 +36,7 @@ Bundle 'twilight256.vim'
 " syntax
 "Bundle 'JavaScript-syntax'
 "Bundle 'javascript.vim'
+Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jQuery'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'naberon/vim-cakehtml'
@@ -296,7 +299,7 @@ let g:y2r_config = {
 \   'host': 'localhost',
 \   'port': 52224,
 \}
-function Yank2Remote()
+function! Yank2Remote()
     call writefile(split(@", '\n'), g:y2r_config.tmp_file, 'b')
     let s:params = ['cat %s %s | nc -w1 %s %s']
     for s:item in ['key_file', 'tmp_file', 'host', 'port']
