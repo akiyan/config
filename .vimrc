@@ -7,6 +7,8 @@ call vundle#rc()               " (3)
 Bundle 'vim-scripts/Align'
 Bundle 'violetyk/cake.vim'
 Bundle 'grep.vim'
+Bundle 'rosenfeld/rgrep.vim'
+"Bundle 'vim-scripts/vimgrep.vim'
 if $SUDO_USER == ''
   Bundle 'Shougo/neocomplcache'
 endif
@@ -23,10 +25,13 @@ Bundle 'taglist.vim'
 Bundle 'matchit.zip'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'sjl/clam.vim'
+Bundle 'kana/vim-tabpagecd'
+Bundle 'joonty/vim-phpqa.git'
 
 " git
 Bundle 'motemen/git-vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'gregsexton/gitv'
 
 " colorscheme
 Bundle 'desert256.vim'
@@ -121,6 +126,8 @@ filetype plugin on
 autocmd! BufRead,BufNewFile *.thtml set filetype=php
 autocmd! BufRead,BufNewFile *.t set filetype=perl
 autocmd! BufRead,BufNewFile *.less set filetype=css
+autocmd! BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
+
 autocmd FileType perl set ts=4
 au QuickfixCmdPost make,grep,grepadd,vimgrep copen
 set scrolloff=3
@@ -189,6 +196,26 @@ let php_parent_error_open = 1
 "let php_folding = 1
 "let php_sync_method = x
 
+" phpqa
+" Don't run messdetector on save (default = 1)
+let g:phpqa_messdetector_autorun = 0
+
+" Don't run codesniffer on save (default = 1)
+let g:phpqa_codesniffer_autorun = 0
+
+" Show code coverage on load (default = 0)
+let g:phpqa_codecoverage_autorun = 0
+
+
+
+" via http://loumo.jp/wp/archive/20120421182934/
+set tags=tags
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_Show_One_File = 1 "現在編集中のソースのタグしか表示しない
+let Tlist_Exit_OnlyWiindow = 1 "taglist が最後のウインドウなら vim を閉じる
+"let Tlist_Enable_Fold_Column = 1 " 折り畳み
+map <silent> <leader>tl :TlistToggle<CR>
+let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
 
 
 " Visual mode で選択したテキストを*で検索する
