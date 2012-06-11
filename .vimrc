@@ -56,6 +56,7 @@ Bundle 'akiyan/vim-textobj-php'
 
 " other
 Bundle 'glidenote/memolist.vim'
+Bundle 'vim-jp/vimdoc-ja'
 
 "
 
