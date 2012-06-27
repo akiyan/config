@@ -15,7 +15,7 @@ endif
 Bundle 'thinca/vim-ref'
 "Bundle 'php.vim'
 Bundle 'nishigori/vim-php-dictionary'
-Bundle 'PHP-correct-Indenting'
+"Bundle 'PHP-correct-Indenting'
 "Bundle 'shawncplus/phpcomplete.vim'
 "Bundle 'vim-scripts/php.vim-html-enhanced'
 "Bundle 'vim-scripts/php.vim-for-php5'
@@ -23,7 +23,7 @@ Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'rgo/taglist.vim'
 Bundle 'matchit.zip'
-Bundle 'vim-scripts/YankRing.vim'
+"Bundle 'vim-scripts/YankRing.vim'
 Bundle 'sjl/clam.vim'
 Bundle 'kana/vim-tabpagecd'
 Bundle 'joonty/vim-phpqa.git'
@@ -42,6 +42,7 @@ Bundle 'twilight256.vim'
 "Bundle 'JavaScript-syntax'
 "Bundle 'javascript.vim'
 Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
 Bundle 'jQuery'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'naberon/vim-cakehtml'
@@ -176,6 +177,11 @@ inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-f>  <C-x><C-o>
 inoremap <C-s>  <ESC>:w<Return>
 inoremap <C-TAB>  tn
+
+"pやPを押した時に最後にyankしたテキストを貼り付けるようにする | この先生きのこるには
+"http://project-p.jp/halt/?p=1747
+"nnoremap p "0p
+"nnoremap P "0P
 
 " xでバッファに格納しない
 nnoremap x "_x
@@ -321,18 +327,18 @@ endfunction
 " http://blog.remora.cx/2011/08/yank-to-local-clipboard-from-vim-on-screen.html
 "
 " yank to remote
-let g:y2r_config = {
-\   'tmp_file': '/tmp/vim-exchange-file',
-\   'key_file': expand('$HOME') . '/.exchange.key',
-\   'host': 'localhost',
-\   'port': 52224,
-\}
-function! Yank2Remote()
-    call writefile(split(@", '\n'), g:y2r_config.tmp_file, 'b')
-    let s:params = ['cat %s %s | nc -w1 %s %s']
-    for s:item in ['key_file', 'tmp_file', 'host', 'port']
-        let s:params += [shellescape(g:y2r_config[s:item])]
-    endfor
-    let s:ret = system(call(function('printf'), s:params))
-endfunction
-nnoremap <silent> <unique> <Leader>y :call Yank2Remote()<CR>
+"let g:y2r_config = {
+"\   'tmp_file': '/tmp/vim-exchange-file',
+"\   'key_file': expand('$HOME') . '/.exchange.key',
+"\   'host': 'localhost',
+"\   'port': 52224,
+"\}
+"function! Yank2Remote()
+"    call writefile(split(@", '\n'), g:y2r_config.tmp_file, 'b')
+"    let s:params = ['cat %s %s | nc -w1 %s %s']
+"    for s:item in ['key_file', 'tmp_file', 'host', 'port']
+"        let s:params += [shellescape(g:y2r_config[s:item])]
+"    endfor
+"    let s:ret = system(call(function('printf'), s:params))
+"endfunction
+"nnoremap <silent> <unique> <Leader>y :call Yank2Remote()<CR>
