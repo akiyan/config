@@ -27,6 +27,7 @@ Bundle 'matchit.zip'
 Bundle 'sjl/clam.vim'
 Bundle 'kana/vim-tabpagecd'
 Bundle 'joonty/vim-phpqa.git'
+Bundle 'tomtom/tcomment_vim'
 
 " git
 Bundle 'motemen/git-vim'
