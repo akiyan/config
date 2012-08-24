@@ -6,6 +6,7 @@ call vundle#rc()               " (3)
 
 Bundle 'vim-scripts/Align'
 Bundle 'violetyk/cake.vim'
+Bundle 'vim-scripts/dbext.vim'
 Bundle 'grep.vim'
 Bundle 'rosenfeld/rgrep.vim'
 "Bundle 'vim-scripts/vimgrep.vim'
@@ -28,6 +29,7 @@ Bundle 'sjl/clam.vim'
 Bundle 'kana/vim-tabpagecd'
 Bundle 'joonty/vim-phpqa.git'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'mattn/zencoding-vim'
 
 " git
 Bundle 'motemen/git-vim'
@@ -59,6 +61,7 @@ Bundle 'akiyan/vim-textobj-php'
 " other
 Bundle 'glidenote/memolist.vim'
 Bundle 'vim-jp/vimdoc-ja'
+Bundle 'Shougo/vimproc'
 
 "
 
@@ -130,6 +133,7 @@ autocmd! BufRead,BufNewFile *.thtml set filetype=php
 autocmd! BufRead,BufNewFile *.t set filetype=perl
 autocmd! BufRead,BufNewFile *.less set filetype=css
 autocmd! BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
+autocmd! BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
 
 autocmd FileType perl set ts=4
 au QuickfixCmdPost make,grep,grepadd,vimgrep copen
@@ -167,6 +171,9 @@ set virtualedit+=block
 
 " cake.vim
 let g:cakephp_enable_auto_mode = 1
+
+" zencoding-vim
+let g:use_zen_complete_tag = 1
 
 " remap
 noremap j gj
@@ -245,7 +252,6 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 "  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 "  autocmd Filetype php inoremap <buffer> </ </<C-x><C-o>
 "augroup END
-"
 
 " neocomplcache
 "let g:neocomplcache_enable_at_startup = 1
@@ -343,3 +349,23 @@ endfunction
 "    let s:ret = system(call(function('printf'), s:params))
 "endfunction
 "nnoremap <silent> <unique> <Leader>y :call Yank2Remote()<CR>
+
+"単純置換
+function! s:replace(...) range "{{{
+  if a:0 < 2
+      return
+        endif
+
+  let range = a:firstline .','. a:lastline
+
+  let tmp = @@
+    silent exec range .'yank'
+      let text = @@
+        let @@ = tmp
+
+  let text =  substitute(text,'\C\V'. escape(a:1,'\'), escape(a:2,'&~\'),'g')
+
+  silent exec "normal! :". range . "change!\<CR>" . text . "."
+
+endfunction "}}}
+command! -nargs=+ -buffer -range Replace :<line1>,<line2>call s:replace(<f-args>)

@@ -62,6 +62,8 @@ export SVN_EDITOR=vim
 export GIT_EDITOR=vim
 export PERL_BADLANG=0
 autoload -U compinit; compinit
+autoload -Uz zmv
+alias zmv='noglob zmv -W'
 setopt append_history
 setopt auto_cd
 setopt auto_list
@@ -190,7 +192,7 @@ zstyle ':completion:*:default' menu select=1
 stty stop undef
 umask 002
 
-source .zsh/git-completion.bash
+source ~/.zsh/git-completion.bash
 
 if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local
