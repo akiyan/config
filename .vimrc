@@ -27,7 +27,7 @@ Bundle 'matchit.zip'
 "Bundle 'vim-scripts/YankRing.vim'
 Bundle 'sjl/clam.vim'
 Bundle 'kana/vim-tabpagecd'
-Bundle 'joonty/vim-phpqa.git'
+"Bundle 'joonty/vim-phpqa.git' "自動Syntaxチェック
 Bundle 'tomtom/tcomment_vim'
 Bundle 'mattn/zencoding-vim'
 
@@ -62,6 +62,8 @@ Bundle 'akiyan/vim-textobj-php'
 Bundle 'glidenote/memolist.vim'
 Bundle 'vim-jp/vimdoc-ja'
 Bundle 'Shougo/vimproc'
+Bundle 'tomtom/checksyntax_vim'
+Bundle 'tomtom/quickfixsigns_vim'
 
 "
 
@@ -128,12 +130,14 @@ nmap tn :tabn<CR>
 nmap tp :tabp<CR>
 filetype on
 filetype plugin on
-"autocmd! BufRead,BufNewFile *.ctp set filetype=php
-autocmd! BufRead,BufNewFile *.thtml set filetype=php
-autocmd! BufRead,BufNewFile *.t set filetype=perl
-autocmd! BufRead,BufNewFile *.less set filetype=css
-autocmd! BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
-autocmd! BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
+"autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
+autocmd BufRead,BufNewFile *.thtml set filetype=php
+autocmd BufRead,BufNewFile *.t set filetype=perl
+autocmd BufRead,BufNewFile *.less set filetype=css
+autocmd BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
+autocmd BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
+autocmd BufWritePost *.php :CheckSyntax
+autocmd BufWritePost *.ctp :CheckSyntax
 
 autocmd FileType perl set ts=4
 au QuickfixCmdPost make,grep,grepadd,vimgrep copen
