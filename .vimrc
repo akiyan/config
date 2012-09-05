@@ -4,80 +4,58 @@ filetype off                   " (1)
 set rtp+=~/.vim/vundle.git/    " (2)
 call vundle#rc()               " (3)
 
-Bundle 'vim-scripts/Align'
-Bundle 'violetyk/cake.vim'
-Bundle 'vim-scripts/dbext.vim'
-Bundle 'grep.vim'
-Bundle 'rosenfeld/rgrep.vim'
-"Bundle 'vim-scripts/vimgrep.vim'
-if $SUDO_USER == ''
-  Bundle 'Shougo/neocomplcache'
-endif
-Bundle 'thinca/vim-ref'
-"Bundle 'php.vim'
-Bundle 'nishigori/vim-php-dictionary'
-"Bundle 'PHP-correct-Indenting'
-"Bundle 'shawncplus/phpcomplete.vim'
-"Bundle 'vim-scripts/php.vim-html-enhanced'
-"Bundle 'vim-scripts/php.vim-for-php5'
-Bundle 'othree/html5.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'rgo/taglist.vim'
-Bundle 'matchit.zip'
-"Bundle 'vim-scripts/YankRing.vim'
-Bundle 'sjl/clam.vim'
-Bundle 'kana/vim-tabpagecd'
-"Bundle 'joonty/vim-phpqa.git' "自動Syntaxチェック
-Bundle 'tomtom/tcomment_vim'
-Bundle 'mattn/zencoding-vim'
-
-" git
-Bundle 'motemen/git-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'gregsexton/gitv'
-
-" colorscheme
-Bundle 'desert256.vim'
-Bundle 'mrkn256.vim'
-Bundle 'twilight256.vim'
-
-" syntax
-"Bundle 'JavaScript-syntax'
-"Bundle 'javascript.vim'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'jQuery'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'naberon/vim-cakehtml'
-
-" gf
-Bundle 'kana/vim-gf-user'
-Bundle 'kana/vim-gf-diff'
-
-" textobj
-Bundle 'kana/vim-textobj-user'
-Bundle 'akiyan/vim-textobj-php'
-
-" other
-Bundle 'glidenote/memolist.vim'
-Bundle 'vim-jp/vimdoc-ja'
 Bundle 'Shougo/vimproc'
+Bundle 'akiyan/vim-textobj-php'
+Bundle 'desert256.vim'
+Bundle 'glidenote/memolist.vim'
+Bundle 'gregsexton/gitv'
+Bundle 'grep.vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'jQuery'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'kana/vim-gf-diff'
+Bundle 'kana/vim-gf-user'
+Bundle 'kana/vim-tabpagecd'
+Bundle 'kana/vim-textobj-user'
+Bundle 'matchit.zip'
+Bundle 'mattn/zencoding-vim'
+Bundle 'motemen/git-vim'
+Bundle 'mrkn256.vim'
+Bundle 'naberon/vim-cakehtml'
+Bundle 'nishigori/vim-php-dictionary'
+Bundle 'othree/html5.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'rgo/taglist.vim'
+Bundle 'rosenfeld/rgrep.vim'
+Bundle 'sjl/clam.vim'
+Bundle 'thinca/vim-ref'
 Bundle 'tomtom/checksyntax_vim'
 Bundle 'tomtom/quickfixsigns_vim'
-
-"
-
-" original repos on github
-" Bundle 'tpope/vim-fugitive'
-"
-" " vim-scripts repos
-" Bundle 'rails.vim'
-"
-" " non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'twilight256.vim'
+Bundle 'vim-jp/vimdoc-ja'
+Bundle 'vim-scripts/Align'
+Bundle 'vim-scripts/dbext.vim'
+Bundle 'violetyk/cake.vim'
+if $SUDO_USER == ''
+ Bundle 'Shougo/neocomplcache'
+endif
+"Bundle 'JavaScript-syntax'
+"Bundle 'PHP-correct-Indenting'
+"Bundle 'javascript.vim'
+"Bundle 'joonty/vim-phpqa.git' "自動Syntaxチェック
+"Bundle 'php.vim'
+"Bundle 'shawncplus/phpcomplete.vim'
+"Bundle 'vim-scripts/YankRing.vim'
+"Bundle 'vim-scripts/php.vim-for-php5'
+"Bundle 'vim-scripts/php.vim-html-enhanced'
+"Bundle 'vim-scripts/vimgrep.vim'
 "
 filetype plugin indent on     " (5)
-
+filetype plugin on
+filetype on
 syntax on
 
 " インデント
@@ -89,17 +67,20 @@ set shiftwidth=2
 set number "行番号
 set ruler  "右下の行数表示
 " set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
-set statusline=%F%m%r%h%w\%=[%Y]\[%{&ff}]\[%{&fileencoding}]%{fugitive#statusline()}\[%l/%L]\[%v]
+set statusline=%F%m%r%h%w\%=[%Y]\[%{&ff}]\[%{&fileencoding}]\[%l/%L]\[%v]
 set laststatus=2
 
 " 表示
 set showmatch "括弧をハイライト
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white "全角スペースをハイライト
-match ZenkakuSpace /　/
+set matchtime=2 "対応する括弧の表示時間を2にする
 set list
 set listchars=tab:>-,nbsp:%,extends:>,precedes:<,eol:$
 set display=lastline "画面最後の行をできる限り表示する。
 set t_Co=256 "256color
+set whichwrap=b,s,h,l,<,>,[,]
+set scrolloff=3
+set display=uhex
+set foldlevel=100
 colorscheme desert256
 
 " 検索
@@ -118,66 +99,34 @@ set ts=2
 set softtabstop=2
 set expandtab
 
-" splitしたときに下に出す。
-set splitbelow
+" split動作
+set splitbelow " splitしたときに下に出す。
+set splitright " vsplitしたときに右に出す。
 
-" vsplitしたときに右に出す。
-set splitright
-
-set showcmd
-set whichwrap=b,s,h,l,<,>,[,]
-nmap tn :tabn<CR>
-nmap tp :tabp<CR>
-filetype on
-filetype plugin on
-"autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
-autocmd BufRead,BufNewFile *.thtml set filetype=php
-autocmd BufRead,BufNewFile *.t set filetype=perl
-autocmd BufRead,BufNewFile *.less set filetype=css
-autocmd BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
-autocmd BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
-autocmd BufWritePost *.php :CheckSyntax
-autocmd BufWritePost *.ctp :CheckSyntax
-
-autocmd FileType perl set ts=4
-au QuickfixCmdPost make,grep,grepadd,vimgrep copen
-set scrolloff=3
-set history=100
-set hidden
-set backspace=indent,eol,start
-set vb t_vb= "no beep
-set display=uhex
-
-set foldlevel=100
-
-" コマンドライン補完を拡張モードにする
-set wildmenu
+" コマンドライン
+set history=300
+set wildmenu " コマンドライン補完を拡張モードにする
 set wildchar=<tab>
 set wildmode=longest,list
 
-" 対応する括弧の強調表示を停止
-"let loaded_matchparen = 1
-
-" 対応する括弧の表示時間を2にする
-set matchtime=2
-
+" 操作
+set backspace=indent,eol,start
 set smartcase
 set ambiwidth=double
 set mouse=a
 
-" 高速ターミナル接続を行う
-set ttyfast
-
+" 
+set showcmd
+set hidden
+set vb t_vb= "no beep
+set ttyfast " 高速ターミナル接続を行う
 set ttymouse=xterm2
-
 set formatoptions=q
 set virtualedit+=block
 
-" cake.vim
-let g:cakephp_enable_auto_mode = 1
-
-" zencoding-vim
-let g:use_zen_complete_tag = 1
+" encoding
+:set encoding=utf-8
+:set fileencodings=ucs-bom,utf-8,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,
 
 " remap
 noremap j gj
@@ -189,21 +138,39 @@ inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-f>  <C-x><C-o>
 inoremap <C-s>  <ESC>:w<Return>
 inoremap <C-TAB>  tn
+nmap tn :tabn<CR>
+nmap tp :tabp<CR>
 
-"pやPを押した時に最後にyankしたテキストを貼り付けるようにする | この先生きのこるには
-"http://project-p.jp/halt/?p=1747
-"nnoremap p "0p
-"nnoremap P "0P
+" autocmd
+autocmd BufRead,BufNewFile *.t set filetype=perl
+autocmd BufRead,BufNewFile *.less set filetype=css
+autocmd BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
+autocmd BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
+autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
+autocmd BufRead,BufNewFile *.thtml set filetype=htmlcake
+autocmd BufWritePost *.php :CheckSyntax
+autocmd BufWritePost *.ctp :CheckSyntax
+" 前回終了したカーソル行に移動
+" via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+" いいかんじにファイルをたどって開く
+" http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
+autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+
+
+
+autocmd FileType perl set ts=4
+au QuickfixCmdPost make,grep,grepadd,vimgrep copen
+
+" cake.vim
+let g:cakephp_enable_auto_mode = 1
+
+" zencoding-vim
+let g:use_zen_complete_tag = 1
 
 " xでバッファに格納しない
 nnoremap x "_x
 let g:yankring_n_keys = 'Y D'
-
-" CTRL-hjklでウィンドウ移動
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
 
 " php
 let php_sql_query = 1
@@ -215,18 +182,12 @@ let php_parent_error_open = 1
 "let php_folding = 1
 "let php_sync_method = x
 
-" phpqa
-" Don't run messdetector on save (default = 1)
-let g:phpqa_messdetector_autorun = 0
+" phpqa.vim
+let g:phpqa_messdetector_autorun = 0 " Don't run messdetector on save (default = 1)
+let g:phpqa_codesniffer_autorun  = 0 " Don't run codesniffer on save (default = 1)
+let g:phpqa_codecoverage_autorun = 0 " Show code coverage on load (default = 0)
 
-" Don't run codesniffer on save (default = 1)
-let g:phpqa_codesniffer_autorun = 0
-
-" Show code coverage on load (default = 0)
-let g:phpqa_codecoverage_autorun = 0
-
-
-
+" ctags.vim
 " via http://loumo.jp/wp/archive/20120421182934/
 set tags=tags
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
@@ -236,28 +197,7 @@ let Tlist_Exit_OnlyWiindow = 1 "taglist が最後のウインドウなら vim �
 map <silent> <leader>tl :TlistToggle<CR>
 let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
 
-
-" Visual mode で選択したテキストを*で検索する
-" http://vim-users.jp/2009/11/hack104/
-vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
-
-" encoding
-:set encoding=utf-8
-:set fileencodings=ucs-bom,utf-8,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,
-
-" 前回終了したカーソル行に移動
-" via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-
-" 自動で閉じタグ
-"augroup MyXML
-"  autocmd!
-"  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-"  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-"  autocmd Filetype php inoremap <buffer> </ </<C-x><C-o>
-"augroup END
-
-" neocomplcache
+" neocomplcache.vim
 "let g:neocomplcache_enable_at_startup = 1
 highlight Pmenu ctermbg=lightcyan ctermfg=black
 highlight PmenuSel ctermbg=blue ctermfg=black
@@ -288,20 +228,6 @@ augroup vimrc-auto-mkdir  " {{{
     endif
   endfunction  " }}}
 augroup END  " }}}
-
-" いいかんじにファイルをたどって開く
-" http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
-autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
-
-
-if 1 && filereadable($HOME . '/.vimrc_local')
-  unlet! g:vimrc_local_finish
-  source ~/.vimrc_local
-  if exists('g:vimrc_local_finish') && g:vimrc_local_finish != 0
-    finish
-  endif
-endif
-
 
 " 入力モードの時にステータスラインの色を変える。
 let g:hi_insert = 'highlight StatusLine guifg=LightGrey guibg=darkblue gui=none ctermfg=white ctermbg=blue cterm=none'
@@ -354,22 +280,11 @@ endfunction
 "endfunction
 "nnoremap <silent> <unique> <Leader>y :call Yank2Remote()<CR>
 
-"単純置換
-function! s:replace(...) range "{{{
-  if a:0 < 2
-      return
-        endif
-
-  let range = a:firstline .','. a:lastline
-
-  let tmp = @@
-    silent exec range .'yank'
-      let text = @@
-        let @@ = tmp
-
-  let text =  substitute(text,'\C\V'. escape(a:1,'\'), escape(a:2,'&~\'),'g')
-
-  silent exec "normal! :". range . "change!\<CR>" . text . "."
-
-endfunction "}}}
-command! -nargs=+ -buffer -range Replace :<line1>,<line2>call s:replace(<f-args>)
+" .vimrc_local
+if 1 && filereadable($HOME . '/.vimrc_local')
+  unlet! g:vimrc_local_finish
+  source ~/.vimrc_local
+  if exists('g:vimrc_local_finish') && g:vimrc_local_finish != 0
+    finish
+  endif
+endif
