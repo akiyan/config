@@ -108,6 +108,7 @@ set history=300
 set wildmenu " コマンドライン補完を拡張モードにする
 set wildchar=<tab>
 set wildmode=longest,list
+set wildignorecase
 
 " 操作
 set backspace=indent,eol,start
