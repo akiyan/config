@@ -13,6 +13,7 @@ Bundle 'grep.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'jQuery'
 Bundle 'jelera/vim-javascript-syntax'
+Bundle 'joonty/vim-phpqa.git' 
 Bundle 'kana/vim-gf-diff'
 Bundle 'kana/vim-gf-user'
 Bundle 'kana/vim-tabpagecd'
@@ -29,7 +30,6 @@ Bundle 'rgo/taglist.vim'
 Bundle 'rosenfeld/rgrep.vim'
 Bundle 'sjl/clam.vim'
 Bundle 'thinca/vim-ref'
-Bundle 'tomtom/checksyntax_vim'
 Bundle 'tomtom/quickfixsigns_vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
@@ -45,9 +45,9 @@ endif
 "Bundle 'JavaScript-syntax'
 "Bundle 'PHP-correct-Indenting'
 "Bundle 'javascript.vim'
-"Bundle 'joonty/vim-phpqa.git' "自動Syntaxチェック
 "Bundle 'php.vim'
 "Bundle 'shawncplus/phpcomplete.vim'
+"Bundle 'tomtom/checksyntax_vim'
 "Bundle 'vim-scripts/YankRing.vim'
 "Bundle 'vim-scripts/php.vim-for-php5'
 "Bundle 'vim-scripts/php.vim-html-enhanced'
@@ -149,8 +149,8 @@ autocmd BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
 autocmd BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
 autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
 autocmd BufRead,BufNewFile *.thtml set filetype=htmlcake
-autocmd BufWritePost *.php :CheckSyntax
-autocmd BufWritePost *.ctp :CheckSyntax
+"autocmd BufWritePost *.php :CheckSyntax
+"autocmd BufWritePost *.ctp :CheckSyntax
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
