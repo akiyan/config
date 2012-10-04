@@ -262,6 +262,14 @@ function! s:GetHighlight(hi)
   return hl
 endfunction
 
+" Vim/insertモードでカーソルキーが使えない [俺の基地]
+" http://yakinikunotare.boo.jp/orebase2/vim/dont_work_arrow_keys_in_insert_mode
+if !has('gui_running')
+  set notimeout
+  set ttimeout
+  set timeoutlen=100
+endif
+
 " 端末上の Vim からローカルにコピーする
 " http://blog.remora.cx/2011/08/yank-to-local-clipboard-from-vim-on-screen.html
 "
