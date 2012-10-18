@@ -13,7 +13,7 @@ Bundle 'grep.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'jQuery'
 Bundle 'jelera/vim-javascript-syntax'
-Bundle 'joonty/vim-phpqa.git' 
+Bundle 'joonty/vim-phpqa.git'
 Bundle 'kana/vim-gf-diff'
 Bundle 'kana/vim-gf-user'
 Bundle 'kana/vim-tabpagecd'
@@ -29,8 +29,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'rgo/taglist.vim'
 Bundle 'rosenfeld/rgrep.vim'
 Bundle 'sjl/clam.vim'
+Bundle 'thinca/vim-quickrun'
 Bundle 'thinca/vim-ref'
-Bundle 'tomtom/quickfixsigns_vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
@@ -48,6 +48,7 @@ endif
 "Bundle 'php.vim'
 "Bundle 'shawncplus/phpcomplete.vim'
 "Bundle 'tomtom/checksyntax_vim'
+"Bundle 'tomtom/quickfixsigns_vim'
 "Bundle 'vim-scripts/YankRing.vim'
 "Bundle 'vim-scripts/php.vim-for-php5'
 "Bundle 'vim-scripts/php.vim-html-enhanced'
@@ -260,6 +261,14 @@ function! s:GetHighlight(hi)
   let hl = substitute(hl, 'xxx', '', '')
   return hl
 endfunction
+
+" Vim/insertモードでカーソルキーが使えない [俺の基地]
+" http://yakinikunotare.boo.jp/orebase2/vim/dont_work_arrow_keys_in_insert_mode
+if !has('gui_running')
+  set notimeout
+  set ttimeout
+  set timeoutlen=100
+endif
 
 " 端末上の Vim からローカルにコピーする
 " http://blog.remora.cx/2011/08/yank-to-local-clipboard-from-vim-on-screen.html
