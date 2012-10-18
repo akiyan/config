@@ -204,7 +204,7 @@ highlight Pmenu ctermbg=lightcyan ctermfg=black
 highlight PmenuSel ctermbg=blue ctermfg=black
 highlight PmenuSbar ctermbg=darkgray
 highlight PmenuThumb ctermbg=lightgray
-autocmd FileType php :set dictionary=~/.vim/dict/php.dict
+autocmd FileType php :set dictionary=~/.vim/dict/php_func.dict
 " 入力文字がこれ以上だと補完しない
 " デフォルトは5だけど当然PHPの関数名はそんなんじゃ収まらないからとりあえず増やしまくる
 let g:neocomplcache_max_try_keyword_length=100
