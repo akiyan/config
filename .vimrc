@@ -63,6 +63,8 @@ syntax on
 set autoindent
 set smartindent
 set shiftwidth=2
+"set cinkeys="0{,0},0),:,0#,!^F,o,O,e"
+set cinkeys="!^F,o,O,e"
 
 " 情報表示
 set number "行番号
@@ -157,7 +159,10 @@ autocmd BufRead,BufNewFile *.thtml set filetype=htmlcake
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 " いいかんじにファイルをたどって開く
 " http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
-autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+"autocmd FileType html,xhtml,htmlcake setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+
+"HTMLのsmartインデントを無効にする.
+autocmd FileType html,xhtml,htmlcake set nosmartindent
 
 
 
