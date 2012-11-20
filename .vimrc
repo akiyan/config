@@ -12,12 +12,13 @@ Bundle 'gregsexton/gitv'
 Bundle 'grep.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'jQuery'
-Bundle 'jelera/vim-javascript-syntax'
+"Bundle 'jelera/vim-javascript-syntax'
 Bundle 'joonty/vim-phpqa.git'
 Bundle 'kana/vim-gf-diff'
 Bundle 'kana/vim-gf-user'
 Bundle 'kana/vim-tabpagecd'
 Bundle 'kana/vim-textobj-user'
+Bundle 'lukaszb/vim-web-indent'
 Bundle 'matchit.zip'
 Bundle 'mattn/zencoding-vim'
 Bundle 'motemen/git-vim'
@@ -25,7 +26,7 @@ Bundle 'mrkn256.vim'
 Bundle 'naberon/vim-cakehtml'
 Bundle 'nishigori/vim-php-dictionary'
 Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
+"Bundle 'pangloss/vim-javascript'
 Bundle 'rgo/taglist.vim'
 Bundle 'rosenfeld/rgrep.vim'
 Bundle 'sjl/clam.vim'
@@ -116,6 +117,7 @@ set backspace=indent,eol,start
 set smartcase
 set ambiwidth=double
 set mouse=a
+set cinkeys=0{,0},0),0#,!^F,o,O,e
 
 " 
 set showcmd
@@ -142,6 +144,9 @@ inoremap <C-s>  <ESC>:w<Return>
 inoremap <C-TAB>  tn
 nmap tn :tabn<CR>
 nmap tp :tabp<CR>
+"vimの連続コピペ問題 #Vim - Qiita
+"http://qiita.com/items/bd97a9b963dae40b63f5
+vnoremap <silent> <C-p> "0p<CR>
 
 " autocmd
 autocmd BufRead,BufNewFile *.t set filetype=perl
