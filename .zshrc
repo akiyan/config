@@ -135,7 +135,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|[-_.]=**'
 
 # PROMPT
 # zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する方法 - ess sup
-
+#
 autoload -Uz add-zsh-hook
 autoload -Uz colors
 colors
