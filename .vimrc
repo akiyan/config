@@ -7,12 +7,14 @@ call vundle#rc()               " (3)
 Bundle 'Shougo/vimproc'
 Bundle 'akiyan/vim-textobj-php'
 Bundle 'desert256.vim'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'git@github.com:nanapi/nanapi.vim.git'
 Bundle 'glidenote/memolist.vim'
 Bundle 'gregsexton/gitv'
 Bundle 'grep.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'jQuery'
-Bundle 'jelera/vim-javascript-syntax'
+"Bundle 'jelera/vim-javascript-syntax'
 Bundle 'joonty/vim-phpqa.git'
 Bundle 'kana/vim-gf-diff'
 Bundle 'kana/vim-gf-user'
@@ -39,6 +41,8 @@ Bundle 'twilight256.vim'
 Bundle 'vim-jp/vimdoc-ja'
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/dbext.vim'
+"Bundle 'vim-scripts/IndentAnything'
+"Bundle 'vim-scripts/javascript.vim'
 Bundle 'violetyk/cake.vim'
 if $SUDO_USER == ''
  Bundle 'Shougo/neocomplcache'
@@ -227,6 +231,12 @@ let g:neocomplcache_ignore_case=1
 " let g:NeoComplCache_MaxList=1000
 " _ があっても補完する
 let g:neocomplcache_enable_underbar_completion=1
+
+"minibuf
+let g:miniBufExplVSplit = 20
+let g:miniBufExplSplitBelow = 0
+let g:miniBufExplAutoOpen = 0
+map <Leader>b :MiniBufExplorer<cr>
 
 " 自動的にディレクトリを作成する
 " http://vim-users.jp/2011/02/hack202/
