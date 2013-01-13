@@ -62,6 +62,8 @@ export SVN_EDITOR=vim
 export GIT_EDITOR=vim
 export PERL_BADLANG=0
 autoload -U compinit; compinit
+autoload -Uz zmv
+alias zmv='noglob zmv -W'
 setopt append_history
 setopt auto_cd
 setopt auto_list
@@ -129,10 +131,11 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|[-_.]=**'
 
 # PROMPT
 # zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する方法 - ess sup
-
+#
 autoload -Uz add-zsh-hook
 autoload -Uz colors
 colors
@@ -190,7 +193,7 @@ zstyle ':completion:*:default' menu select=1
 stty stop undef
 umask 002
 
-source .zsh/git-completion.bash
+source ~/.zsh/git-completion.bash
 
 if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local

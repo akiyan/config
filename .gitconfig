@@ -1,14 +1,11 @@
-[user]
-        email = akiyan21@gmail.com
-        name = akiyan
+[core]
+  pager = less -r
+  editor = vim
 [color]
-        ui = auto
+  ui = auto 
 [alias]
-co = checkout
-br = branch
-st = status
-ci = commit
-mg = merge
+#co = checkout
+#st = status
 
 # via http://d.hatena.ne.jp/yuroyoro/20101008
 # mergeの際にconflictが起きたファイルを編集
@@ -17,3 +14,5 @@ edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim -p 
 add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 [http]
 	sslVerify = false
+[include]
+  path = .gitconfig.local
