@@ -12,6 +12,7 @@ Bundle 'rosenfeld/rgrep.vim'
 if $SUDO_USER == ''
   Bundle 'Shougo/neocomplcache'
 endif
+Bundle 'vim-scripts/sudo.vim'
 Bundle 'thinca/vim-ref'
 "Bundle 'php.vim'
 Bundle 'nishigori/vim-php-dictionary'
@@ -26,6 +27,7 @@ Bundle 'matchit.zip'
 "Bundle 'vim-scripts/YankRing.vim'
 Bundle 'sjl/clam.vim'
 Bundle 'kana/vim-tabpagecd'
+Bundle 'kana/vim-smartinput'
 Bundle 'joonty/vim-phpqa.git'
 
 " git
