@@ -188,7 +188,7 @@ let g:use_zen_complete_tag = 1
 
 " xでバッファに格納しない
 nnoremap x "_x
-let g:yankring_n_keys = 'Y D'
+"let g:yankring_n_keys = 'Y D'
 
 " php
 let php_sql_query = 1
