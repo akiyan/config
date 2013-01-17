@@ -7,7 +7,7 @@ call vundle#rc()               " (3)
 Bundle 'Shougo/vimproc'
 Bundle 'akiyan/vim-textobj-php'
 Bundle 'desert256.vim'
-Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'fholgado/minibufexpl.vim'
 Bundle 'git@github.com:nanapi/nanapi.vim.git'
 Bundle 'glidenote/memolist.vim'
 Bundle 'gregsexton/gitv'
@@ -141,6 +141,8 @@ set virtualedit+=block
 " remap
 noremap j gj
 noremap k gk
+noremap <C-n> :cnext<Return>
+noremap <C-p> :cprevious<Return>
 noremap <F-3> g&
 noremap <C-s>  :w<Return>
 inoremap <C-u>  <C-g>u<C-u>
