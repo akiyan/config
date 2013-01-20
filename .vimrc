@@ -20,6 +20,8 @@ Bundle 'kana/vim-gf-diff'
 Bundle 'kana/vim-gf-user'
 Bundle 'kana/vim-tabpagecd'
 Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-operator-replace.git'
+Bundle 'kana/vim-operator-user.git'
 Bundle 'lukaszb/vim-web-indent'
 Bundle 'matchit.zip'
 Bundle 'mattn/zencoding-vim'
@@ -155,6 +157,7 @@ nmap tp :tabp<CR>
 "vimの連続コピペ問題 #Vim - Qiita
 "http://qiita.com/items/bd97a9b963dae40b63f5
 vnoremap <silent> <C-p> "0p<CR>
+map R  <Plug>(operator-replace)
 
 " autocmd
 autocmd BufRead,BufNewFile *.t set filetype=perl
