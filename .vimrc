@@ -46,6 +46,8 @@ Bundle 'vim-scripts/dbext.vim'
 "Bundle 'vim-scripts/IndentAnything'
 "Bundle 'vim-scripts/javascript.vim'
 Bundle 'violetyk/cake.vim'
+Bundle 'tyru/open-browser-github.vim'
+Bundle 'tyru/open-browser.vim'
 if $SUDO_USER == ''
  Bundle 'Shougo/neocomplcache'
 endif
