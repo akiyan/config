@@ -124,7 +124,6 @@ set wildignorecase
 
 " 操作
 set backspace=indent,eol,start
-set smartcase
 set ambiwidth=double
 set mouse=a
 set cinkeys=0{,0},0),0#,!^F,o,O,e
@@ -137,6 +136,7 @@ set ttyfast " 高速ターミナル接続を行う
 set ttymouse=xterm2
 set formatoptions=q
 set virtualedit+=block
+set iskeyword+=-
 
 " encoding
 :set encoding=utf-8
