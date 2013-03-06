@@ -136,7 +136,6 @@ set ttyfast " 高速ターミナル接続を行う
 set ttymouse=xterm2
 set formatoptions=q
 set virtualedit+=block
-set iskeyword+=-
 
 " encoding
 :set encoding=utf-8
@@ -179,6 +178,9 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 
 "HTMLのsmartインデントを無効にする.
 autocmd FileType html,xhtml,htmlcake set nosmartindent
+
+"HTMLではハイフンは単語の境界にしない
+autocmd FileType html,xhtml,htmlcacke set iskeyword+=-
 
 
 
