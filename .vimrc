@@ -47,6 +47,8 @@ Bundle 'vim-scripts/dbext.vim'
 "Bundle 'vim-scripts/IndentAnything'
 "Bundle 'vim-scripts/javascript.vim'
 Bundle 'violetyk/cake.vim'
+Bundle 'tyru/open-browser-github.vim'
+Bundle 'tyru/open-browser.vim'
 if $SUDO_USER == ''
  Bundle 'Shougo/neocomplcache'
 endif
@@ -123,7 +125,6 @@ set wildignorecase
 
 " 操作
 set backspace=indent,eol,start
-set smartcase
 set ambiwidth=double
 set mouse=a
 set cinkeys=0{,0},0),0#,!^F,o,O,e
@@ -178,6 +179,9 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 
 "HTMLのsmartインデントを無効にする.
 "autocmd FileType html,xhtml,htmlcake set nosmartindent
+
+"HTMLではハイフンは単語の境界にしない
+autocmd FileType html,xhtml,htmlcacke set iskeyword+=-
 
 
 
