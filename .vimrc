@@ -181,7 +181,7 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 "autocmd FileType html,xhtml,htmlcake set nosmartindent
 
 "HTMLではハイフンは単語の境界にしない
-autocmd FileType html,xhtml,htmlcacke set iskeyword+=-
+"autocmd FileType html,xhtml,htmlcacke set iskeyword+=-
 
 
 
