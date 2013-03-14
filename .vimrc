@@ -25,6 +25,7 @@ Bundle 'kana/vim-operator-user.git'
 Bundle 'lukaszb/vim-web-indent'
 Bundle 'matchit.zip'
 Bundle 'mattn/zencoding-vim'
+Bundle 'miya0001/vim-dict-wordpress'
 Bundle 'motemen/git-vim'
 Bundle 'mrkn256.vim'
 Bundle 'naberon/vim-cakehtml'
@@ -176,7 +177,7 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 "autocmd FileType html,xhtml,htmlcake setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
 
 "HTMLのsmartインデントを無効にする.
-autocmd FileType html,xhtml,htmlcake set nosmartindent
+"autocmd FileType html,xhtml,htmlcake set nosmartindent
 
 
 
@@ -188,6 +189,9 @@ let g:cakephp_enable_auto_mode = 1
 
 " zencoding-vim
 let g:use_zen_complete_tag = 1
+
+" html5.vim
+
 
 " xでバッファに格納しない
 nnoremap x "_x
