@@ -6,6 +6,8 @@ ln -s config/.vim
 ln -s config/.vimrc
 ln -s config/.zsh
 ln -s config/.zshrc
+ln -s config/.tmux.conf
+ln -s config/.ctags
 cd config
 git submodule init
 git submodule update

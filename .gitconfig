@@ -1,8 +1,8 @@
-[user]
-        email = akiyan21@gmail.com
-        name = akiyan
+[core]
+  pager = less -r
+  editor = vim
 [color]
-        ui = auto
+  ui = auto 
 [alias]
 #co = checkout
 #st = status
@@ -14,3 +14,5 @@ edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim -p 
 add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 [http]
 	sslVerify = false
+[include]
+  path = .gitconfig.local

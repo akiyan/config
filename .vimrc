@@ -7,30 +7,36 @@ call vundle#rc()               " (3)
 Bundle 'Shougo/vimproc'
 Bundle 'akiyan/vim-textobj-php'
 Bundle 'desert256.vim'
+"Bundle 'fholgado/minibufexpl.vim'
+Bundle 'git@github.com:nanapi/nanapi.vim.git'
 Bundle 'glidenote/memolist.vim'
 Bundle 'gregsexton/gitv'
 Bundle 'grep.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'jQuery'
-Bundle 'jelera/vim-javascript-syntax'
+"Bundle 'jelera/vim-javascript-syntax'
+Bundle 'joonty/vim-phpqa.git'
 Bundle 'kana/vim-gf-diff'
 Bundle 'kana/vim-gf-user'
 Bundle 'kana/vim-tabpagecd'
 Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-operator-replace.git'
+Bundle 'kana/vim-operator-user.git'
+Bundle 'lukaszb/vim-web-indent'
 Bundle 'matchit.zip'
 Bundle 'mattn/zencoding-vim'
+Bundle 'miya0001/vim-dict-wordpress'
 Bundle 'motemen/git-vim'
 Bundle 'mrkn256.vim'
 Bundle 'naberon/vim-cakehtml'
 Bundle 'nishigori/vim-php-dictionary'
 Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
+"Bundle 'pangloss/vim-javascript'
 Bundle 'rgo/taglist.vim'
 Bundle 'rosenfeld/rgrep.vim'
 Bundle 'sjl/clam.vim'
+Bundle 'thinca/vim-quickrun'
 Bundle 'thinca/vim-ref'
-Bundle 'tomtom/checksyntax_vim'
-Bundle 'tomtom/quickfixsigns_vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
@@ -38,16 +44,21 @@ Bundle 'twilight256.vim'
 Bundle 'vim-jp/vimdoc-ja'
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/dbext.vim'
+"Bundle 'vim-scripts/IndentAnything'
+"Bundle 'vim-scripts/javascript.vim'
 Bundle 'violetyk/cake.vim'
+Bundle 'tyru/open-browser-github.vim'
+Bundle 'tyru/open-browser.vim'
 if $SUDO_USER == ''
  Bundle 'Shougo/neocomplcache'
 endif
 "Bundle 'JavaScript-syntax'
 "Bundle 'PHP-correct-Indenting'
 "Bundle 'javascript.vim'
-"Bundle 'joonty/vim-phpqa.git' "自動Syntaxチェック
 "Bundle 'php.vim'
 "Bundle 'shawncplus/phpcomplete.vim'
+"Bundle 'tomtom/checksyntax_vim'
+"Bundle 'tomtom/quickfixsigns_vim'
 "Bundle 'vim-scripts/YankRing.vim'
 "Bundle 'vim-scripts/php.vim-for-php5'
 "Bundle 'vim-scripts/php.vim-html-enhanced'
@@ -62,6 +73,8 @@ syntax on
 set autoindent
 set smartindent
 set shiftwidth=2
+"set cinkeys="0{,0},0),:,0#,!^F,o,O,e"
+set cinkeys="!^F,o,O,e"
 
 " 情報表示
 set number "行番号
@@ -108,12 +121,13 @@ set history=300
 set wildmenu " コマンドライン補完を拡張モードにする
 set wildchar=<tab>
 set wildmode=longest,list
+set wildignorecase
 
 " 操作
 set backspace=indent,eol,start
-set smartcase
 set ambiwidth=double
 set mouse=a
+set cinkeys=0{,0},0),0#,!^F,o,O,e
 
 " 
 set showcmd
@@ -131,6 +145,8 @@ set virtualedit+=block
 " remap
 noremap j gj
 noremap k gk
+noremap <C-n> :cnext<Return>
+noremap <C-p> :cprevious<Return>
 noremap <F-3> g&
 noremap <C-s>  :w<Return>
 inoremap <C-u>  <C-g>u<C-u>
@@ -140,6 +156,10 @@ inoremap <C-s>  <ESC>:w<Return>
 inoremap <C-TAB>  tn
 nmap tn :tabn<CR>
 nmap tp :tabp<CR>
+"vimの連続コピペ問題 #Vim - Qiita
+"http://qiita.com/items/bd97a9b963dae40b63f5
+vnoremap <silent> <C-p> "0p<CR>
+map R  <Plug>(operator-replace)
 
 " autocmd
 autocmd BufRead,BufNewFile *.t set filetype=perl
@@ -148,14 +168,20 @@ autocmd BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
 autocmd BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
 autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
 autocmd BufRead,BufNewFile *.thtml set filetype=htmlcake
-autocmd BufWritePost *.php :CheckSyntax
-autocmd BufWritePost *.ctp :CheckSyntax
+"autocmd BufWritePost *.php :CheckSyntax
+"autocmd BufWritePost *.ctp :CheckSyntax
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 " いいかんじにファイルをたどって開く
 " http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
-autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+"autocmd FileType html,xhtml,htmlcake setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+
+"HTMLのsmartインデントを無効にする.
+"autocmd FileType html,xhtml,htmlcake set nosmartindent
+
+"HTMLではハイフンは単語の境界にしない
+"autocmd FileType html,xhtml,htmlcacke set iskeyword+=-
 
 
 
@@ -168,9 +194,12 @@ let g:cakephp_enable_auto_mode = 1
 " zencoding-vim
 let g:use_zen_complete_tag = 1
 
+" html5.vim
+
+
 " xでバッファに格納しない
 nnoremap x "_x
-let g:yankring_n_keys = 'Y D'
+"let g:yankring_n_keys = 'Y D'
 
 " php
 let php_sql_query = 1
@@ -203,7 +232,7 @@ highlight Pmenu ctermbg=lightcyan ctermfg=black
 highlight PmenuSel ctermbg=blue ctermfg=black
 highlight PmenuSbar ctermbg=darkgray
 highlight PmenuThumb ctermbg=lightgray
-autocmd FileType php :set dictionary=~/.vim/dict/php.dict
+autocmd FileType php :set dictionary=~/.vim/dict/php_func.dict
 " 入力文字がこれ以上だと補完しない
 " デフォルトは5だけど当然PHPの関数名はそんなんじゃ収まらないからとりあえず増やしまくる
 let g:neocomplcache_max_try_keyword_length=100
@@ -215,6 +244,12 @@ let g:neocomplcache_ignore_case=1
 " let g:NeoComplCache_MaxList=1000
 " _ があっても補完する
 let g:neocomplcache_enable_underbar_completion=1
+
+"minibuf
+let g:miniBufExplVSplit = 20
+let g:miniBufExplSplitBelow = 0
+let g:miniBufExplAutoOpen = 0
+map <Leader>b :MiniBufExplorer<cr>
 
 " 自動的にディレクトリを作成する
 " http://vim-users.jp/2011/02/hack202/
@@ -259,6 +294,14 @@ function! s:GetHighlight(hi)
   let hl = substitute(hl, 'xxx', '', '')
   return hl
 endfunction
+
+" Vim/insertモードでカーソルキーが使えない [俺の基地]
+" http://yakinikunotare.boo.jp/orebase2/vim/dont_work_arrow_keys_in_insert_mode
+if !has('gui_running')
+  set notimeout
+  set ttimeout
+  set timeoutlen=100
+endif
 
 " 端末上の Vim からローカルにコピーする
 " http://blog.remora.cx/2011/08/yank-to-local-clipboard-from-vim-on-screen.html

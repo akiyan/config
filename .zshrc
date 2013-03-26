@@ -60,6 +60,7 @@ export LANG=ja_JP.UTF-8
 #export EDITOR=vim
 export SVN_EDITOR=vim
 export GIT_EDITOR=vim
+export GIT_MERGE_AUTOEDIT=no
 export PERL_BADLANG=0
 autoload -U compinit; compinit
 autoload -Uz zmv
@@ -131,10 +132,11 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|[-_.]=**'
 
 # PROMPT
 # zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する方法 - ess sup
-
+#
 autoload -Uz add-zsh-hook
 autoload -Uz colors
 colors
