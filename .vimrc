@@ -32,6 +32,7 @@ Bundle 'nishigori/vim-php-dictionary'
 Bundle 'othree/html5.vim'
 "Bundle 'pangloss/vim-javascript'
 Bundle 'rgo/taglist.vim'
+Bundle 'rking/ag.vim'
 Bundle 'rosenfeld/rgrep.vim'
 Bundle 'sjl/clam.vim'
 Bundle 'thinca/vim-quickrun'
@@ -43,6 +44,7 @@ Bundle 'twilight256.vim'
 Bundle 'vim-jp/vimdoc-ja'
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/dbext.vim'
+Bundle 'SQLUtilities'
 "Bundle 'vim-scripts/IndentAnything'
 "Bundle 'vim-scripts/javascript.vim'
 Bundle 'violetyk/cake.vim'
@@ -179,8 +181,6 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 "HTMLのsmartインデントを無効にする.
 autocmd FileType html,xhtml,htmlcake set nosmartindent
 
-"HTMLではハイフンは単語の境界にしない
-autocmd FileType html,xhtml,htmlcacke set iskeyword+=-
 
 
 
