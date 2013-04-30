@@ -1,4 +1,3 @@
-cd ~
 ln -s config/.gitconfig 
 ln -s config/.gitmodules 
 ln -s config/.screenrc
