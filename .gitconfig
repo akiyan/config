@@ -16,3 +16,6 @@ add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add 
 	sslVerify = false
 [include]
   path = .gitconfig.local
+[user]
+	email = akiyan.com@gmail.com
+	name = akiyan

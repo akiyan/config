@@ -16,7 +16,7 @@ Bundle 'grep.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'jQuery'
 "Bundle 'jelera/vim-javascript-syntax'
-Bundle 'joonty/vim-phpqa.git'
+"Bundle 'joonty/vim-phpqa.git'
 Bundle 'kana/vim-gf-user'
 Bundle 'kana/vim-gf-diff'
 Bundle 'kana/vim-tabpagecd'
@@ -66,7 +66,7 @@ endif
 "Bundle 'javascript.vim'
 "Bundle 'php.vim'
 "Bundle 'shawncplus/phpcomplete.vim'
-"Bundle 'tomtom/checksyntax_vim'
+Bundle 'tomtom/checksyntax_vim'
 "Bundle 'tomtom/quickfixsigns_vim'
 "Bundle 'vim-scripts/YankRing.vim'
 "Bundle 'vim-scripts/php.vim-for-php5'
@@ -177,8 +177,8 @@ autocmd BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
 autocmd BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
 autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
 autocmd BufRead,BufNewFile *.thtml set filetype=htmlcake
-"autocmd BufWritePost *.php :CheckSyntax
-"autocmd BufWritePost *.ctp :CheckSyntax
+autocmd BufWritePost *.php :CheckSyntax
+autocmd BufWritePost *.ctp :CheckSyntax
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
