@@ -1,4 +1,4 @@
-ln -s config/.gitconfig 
+#ln -s config/.gitconfig 
 ln -s config/.gitmodules 
 ln -s config/.screenrc
 ln -s config/.vim
