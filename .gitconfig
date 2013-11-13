@@ -1,6 +1,7 @@
 [core]
   pager = less -r
   editor = vim
+  excludesfile = /opt/boxen/config/git/gitignore
 [color]
   ui = auto 
 [alias]
@@ -21,3 +22,7 @@ add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add 
 	name = akiyan
 [github]
 	user = akiyan
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
+[hub]
+protocol = https
