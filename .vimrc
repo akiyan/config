@@ -29,8 +29,12 @@ Bundle 'lukaszb/vim-web-indent'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'matchit.zip'
+Bundle 'mattn/qiita-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'miya0001/vim-dict-wordpress'
+Bundle 'mklabs/vim-issues'
 Bundle 'motemen/git-vim'
 Bundle 'mrkn256.vim'
 Bundle 'naberon/vim-cakehtml'
@@ -314,23 +318,21 @@ endif
 
 " 端末上の Vim からローカルにコピーする
 " http://blog.remora.cx/2011/08/yank-to-local-clipboard-from-vim-on-screen.html
-"
-" yank to remote
-"let g:y2r_config = {
-"\   'tmp_file': '/tmp/vim-exchange-file',
-"\   'key_file': expand('$HOME') . '/.exchange.key',
-"\   'host': 'localhost',
-"\   'port': 52224,
-"\}
-"function! Yank2Remote()
-"    call writefile(split(@", '\n'), g:y2r_config.tmp_file, 'b')
-"    let s:params = ['cat %s %s | nc -w1 %s %s']
-"    for s:item in ['key_file', 'tmp_file', 'host', 'port']
-"        let s:params += [shellescape(g:y2r_config[s:item])]
-"    endfor
-"    let s:ret = system(call(function('printf'), s:params))
-"endfunction
-"nnoremap <silent> <unique> <Leader>y :call Yank2Remote()<CR>
+let g:y2r_config = {
+\   'tmp_file': expand('$HOME') . '/.vim-exchange-file',
+\   'key_file': expand('$HOME') . '/.vim-exchange-key',
+\   'host': 'localhost',
+\   'port': 52224,
+\}
+function! Yank2Remote()
+    call writefile(split(@", '\n'), g:y2r_config.tmp_file, 'b')
+    let s:params = ['cat %s %s | nc -w1 %s %s']
+    for s:item in ['key_file', 'tmp_file', 'host', 'port']
+        let s:params += [shellescape(g:y2r_config[s:item])]
+    endfor
+    let s:ret = system(call(function('printf'), s:params))
+endfunction
+nnoremap <silent> <unique> <Leader>y :call Yank2Remote()<CR>
 
 " .vimrc_local
 if 1 && filereadable($HOME . '/.vimrc_local')
