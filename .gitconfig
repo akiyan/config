@@ -20,9 +20,3 @@ add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add 
 [user]
 	email = akiyan.com@gmail.com
 	name = akiyan
-[github]
-	user = akiyan
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential
-[hub]
-protocol = https
