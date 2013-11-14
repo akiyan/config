@@ -318,21 +318,38 @@ endif
 
 " 端末上の Vim からローカルにコピーする
 " http://blog.remora.cx/2011/08/yank-to-local-clipboard-from-vim-on-screen.html
-let g:y2r_config = {
-\   'tmp_file': expand('$HOME') . '/.vim-exchange-file',
-\   'key_file': expand('$HOME') . '/.vim-exchange-key',
-\   'host': 'localhost',
-\   'port': 52224,
-\}
-function! Yank2Remote()
-    call writefile(split(@", '\n'), g:y2r_config.tmp_file, 'b')
-    let s:params = ['cat %s %s | nc -w1 %s %s']
-    for s:item in ['key_file', 'tmp_file', 'host', 'port']
-        let s:params += [shellescape(g:y2r_config[s:item])]
-    endfor
-    let s:ret = system(call(function('printf'), s:params))
+" let g:y2r_config = {
+" \   'tmp_file': expand('$HOME') . '/.vim-exchange-file',
+" \   'key_file': expand('$HOME') . '/.vim-exchange-key',
+" \   'host': 'localhost',
+" \   'port': 52224,
+" \}
+" function! Yank2Remote()
+"     call writefile(split(@", '\n'), g:y2r_config.tmp_file, 'b')
+"     let s:params = ['cat %s %s | nc -w1 %s %s']
+"     for s:item in ['key_file', 'tmp_file', 'host', 'port']
+"         let s:params += [shellescape(g:y2r_config[s:item])]
+"     endfor
+"     let s:ret = system(call(function('printf'), s:params))
+" endfunction
+" nnoremap <silent> <unique> <Leader>y :call Yank2Remote()<CR>
+
+
+
+function! Paste64Copy()
+  let b64 = webapi#base64#b64encode(@")
+  if $TMUX != ""
+    "tmuxのとき
+    let cmd = printf('printf "\x1bPtmux;\x1b\x1b]52;;%s\x1b\x1b\\\\\x1b\\" > /dev/tty', b64)
+  elseif $TERM == "xterm-256color"
+    "GNU Screenのとき
+    let cmd = printf('printf "\x1bP\x1b]52;;%s\x07\x1b\\" > /dev/tty', b64)
+  else
+    let cmd = printf('printf "\x1b]52;;%s\x1b\\" > /dev/tty', b64)
+  endif
+  call system(cmd)
 endfunction
-nnoremap <silent> <unique> <Leader>y :call Yank2Remote()<CR>
+nnoremap <Leader>y :call Paste64Copy()<CR>
 
 " .vimrc_local
 if 1 && filereadable($HOME . '/.vimrc_local')
