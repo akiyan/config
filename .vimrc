@@ -142,7 +142,21 @@ set ambiwidth=double
 set mouse=a
 set cinkeys=0{,0},0),0#,!^F,o,O,e
 
+" 自動保存
 " 
+set autowrite
+set updatetime=500
+
+function s:AutoWriteIfPossible()
+  if !&readonly && bufname('%') !=# ''
+    w
+  endif
+endfunction
+
+autocmd CursorHold * call s:AutoWriteIfPossible()
+autocmd CursorHoldI * call s:AutoWriteIfPossible()
+
+" other
 set showcmd
 set hidden
 set vb t_vb= "no beep
