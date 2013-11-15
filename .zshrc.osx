@@ -1,0 +1,2 @@
+source /opt/boxen/env.sh
+export PATH=$HOME/config/bin:$PATH
