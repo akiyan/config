@@ -290,6 +290,12 @@ let g:miniBufExplSplitBelow = 0
 let g:miniBufExplAutoOpen = 0
 map <Leader>b :MiniBufExplorer<cr>
 
+"unite
+nnoremap [unite] :<C-u>Unite<Space>
+nmap f [unite]
+
+nnoremap [unite]c   :<C-u>Unite cake_controller cake_model cake_config cake_component cake_behavior cake_helper cake_shell cake_fixture cake_core cake_lib n_class -start-insert<CR>
+
 " 自動的にディレクトリを作成する
 " http://vim-users.jp/2011/02/hack202/
 augroup vimrc-auto-mkdir  " {{{
