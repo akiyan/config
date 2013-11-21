@@ -55,13 +55,25 @@ Bundle 'vim-jp/vimdoc-ja'
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/dbext.vim'
 Bundle 'SQLUtilities'
-"Bundle 'vim-scripts/IndentAnything'
-"Bundle 'vim-scripts/javascript.vim'
+Bundle 'Shougo/unite.vim'
+Bundle 'ujihisa/unite-colorscheme'
 Bundle 'violetyk/cake.vim'
 Bundle 'violetyk/gitquick.vim'
 Bundle 'tyru/open-browser-github.vim'
 Bundle 'tyru/open-browser.vim'
 Bundle 'git@github.com:nanapi/nanapi.vim.git'
+
+"colorschemes
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'jpo/vim-railscasts-theme'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'tomasr/molokai'
+Bundle 'vim-scripts/Wombat'
+Bundle 'vim-scripts/rdark'
+Bundle 'vim-scripts/twilight'
+Bundle 'w0ng/vim-hybrid'
+
 if $SUDO_USER == ''
  Bundle 'Shougo/neocomplcache'
 endif
@@ -107,7 +119,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set scrolloff=3
 set display=uhex
 set foldlevel=100
-colorscheme desert256
+colorscheme twilight
 
 " 検索
 set incsearch     "インクリメンタルサーチ
@@ -153,8 +165,8 @@ function s:AutoWriteIfPossible()
   endif
 endfunction
 
-autocmd CursorHold * call s:AutoWriteIfPossible()
-autocmd CursorHoldI * call s:AutoWriteIfPossible()
+"autocmd CursorHold * call s:AutoWriteIfPossible()
+"autocmd CursorHoldI * call s:AutoWriteIfPossible()
 
 " other
 set showcmd
