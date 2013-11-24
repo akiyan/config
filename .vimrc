@@ -6,6 +6,7 @@ call vundle#rc()               " (3)
 
 Bundle 'Shougo/vimproc'
 Bundle 'akiyan/vim-textobj-php'
+Bundle 'akiyan/vim-textobj-erb'
 Bundle 'akiyan/vim-textobj-xml-attribute'
 Bundle 'chrisbra/csv.vim'
 Bundle 'desert256.vim'
