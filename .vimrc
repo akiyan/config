@@ -119,7 +119,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set scrolloff=3
 set display=uhex
 set foldlevel=100
-colorscheme twilight
+colorscheme desert256
 
 " 検索
 set incsearch     "インクリメンタルサーチ
@@ -292,7 +292,7 @@ map <Leader>b :MiniBufExplorer<cr>
 
 "unite
 nnoremap [unite] :<C-u>Unite<Space>
-nmap f [unite]
+"nmap f [unite]
 
 nnoremap [unite]c   :<C-u>Unite cake_controller cake_model cake_config cake_component cake_behavior cake_helper cake_shell cake_fixture cake_core cake_lib n_class -start-insert<CR>
 
