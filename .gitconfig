@@ -1,6 +1,7 @@
 [core]
   pager = less -r
   editor = vim
+  excludesfile = /opt/boxen/config/git/gitignore
 [color]
   ui = auto 
 [alias]
