@@ -64,7 +64,7 @@ Bundle 'ujihisa/unite-colorscheme'
 Bundle 'violetyk/cake.vim'
 Bundle 'violetyk/gitquick.vim'
 Bundle 'terryma/vim-expand-region'
-Bundle 'tyru/open-browser-github.vim'
+"Bundle 'tyru/open-browser-github.vim'
 Bundle 'tyru/open-browser.vim'
 Bundle 'git@github.com:nanapi/nanapi.vim.git'
 
