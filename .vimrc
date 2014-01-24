@@ -66,6 +66,7 @@ Bundle 'violetyk/gitquick.vim'
 Bundle 'terryma/vim-expand-region'
 Bundle 'tyru/open-browser-github.vim'
 Bundle 'tyru/open-browser.vim'
+Bundle 't9md/vim-choosewin'
 Bundle 'git@github.com:nanapi/nanapi.vim.git'
 
 "colorschemes
@@ -80,7 +81,8 @@ Bundle 'vim-scripts/twilight'
 Bundle 'w0ng/vim-hybrid'
 
 if $SUDO_USER == ''
- Bundle 'Shougo/neocomplcache'
+ Bundle 'Shougo/neocomplete.vim'
+ Bundle 'violetyk/neocomplete-php.vim'
 endif
 "Bundle 'JavaScript-syntax'
 "Bundle 'PHP-correct-Indenting'
@@ -161,14 +163,14 @@ set cinkeys=0{,0},0),0#,!^F,o,O,e
 
 " 自動保存
 " 
-set autowrite
-set updatetime=500
-
-function s:AutoWriteIfPossible()
-  if !&readonly && bufname('%') !=# ''
-    w
-  endif
-endfunction
+" set autowrite
+" set updatetime=500
+"
+" function s:AutoWriteIfPossible()
+"   if !&readonly && bufname('%') !=# ''
+"     w
+"   endif
+" endfunction
 
 "autocmd CursorHold * call s:AutoWriteIfPossible()
 "autocmd CursorHoldI * call s:AutoWriteIfPossible()
@@ -270,8 +272,12 @@ let Tlist_Exit_OnlyWiindow = 1 "taglist が最後のウインドウなら vim �
 map <silent> <leader>tl :TlistToggle<CR>
 let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
 
+" neocomplete
+" let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
 " neocomplcache.vim
-"let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 1
 highlight Pmenu ctermbg=lightcyan ctermfg=black
 highlight PmenuSel ctermbg=blue ctermfg=black
 highlight PmenuSbar ctermbg=darkgray
@@ -387,6 +393,20 @@ function! Paste64Copy()
   call system(cmd)
 endfunction
 nnoremap <Leader>y :call Paste64Copy()<CR>
+
+" choosewin
+
+" '-' で呼び出し
+nmap  -  <Plug>(choosewin)
+
+" オーバーレイを使う
+let g:choosewin_overlay_enable = 1
+
+" マルチバイトバッファでオーバーレイフォントを崩さないように
+let g:choosewin_overlay_clear_multibyte = 1
+
+" neocomplete-php
+let g:neocomplete_php_locale = 'ja'
 
 " .vimrc_local
 if 1 && filereadable($HOME . '/.vimrc_local')
