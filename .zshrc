@@ -200,3 +200,6 @@ source ~/.zsh/git-completion.bash
 if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local
 fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

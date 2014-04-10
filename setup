@@ -8,6 +8,7 @@ ln -s config/.zshrc
 ln -s config/.bash_profile
 ln -s config/.tmux.conf
 ln -s config/.ctags
+ln -s config/.gemrc
 cd config
 git submodule init
 git submodule update
