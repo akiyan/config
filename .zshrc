@@ -64,6 +64,7 @@ export GIT_MERGE_AUTOEDIT=no
 export PERL_BADLANG=0
 autoload -U compinit; compinit
 autoload -Uz zmv
+autoload -Uz is-at-least
 alias zmv='noglob zmv -W'
 setopt append_history
 setopt auto_cd
@@ -127,12 +128,14 @@ zstyle ':predict' verbose true
 
 #zaw.zshで最近移動したディレクトリに移動する - Dive into the Tech World!
 #http://d.hatena.ne.jp/shiba_yu36/20120130/1327937835
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':chpwd:*' recent-dirs-max 5000
-zstyle ':chpwd:*' recent-dirs-default yes
-zstyle ':completion:*' recent-dirs-insert both
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|[-_.]=**'
+if is-at-least 4.3.17; then
+  autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+  add-zsh-hook chpwd chpwd_recent_dirs
+  zstyle ':chpwd:*' recent-dirs-max 5000
+  zstyle ':chpwd:*' recent-dirs-default yes
+  zstyle ':completion:*' recent-dirs-insert both
+  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|[-_.]=**'
+fi
 
 # PROMPT
 # zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する方法 - ess sup
