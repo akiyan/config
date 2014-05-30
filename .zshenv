@@ -5,6 +5,7 @@ export SVN_EDITOR=vim
 export GIT_EDITOR=vim
 export GIT_MERGE_AUTOEDIT=no
 
+HISTFILE=$HOME/.zsh-history           # 履歴をファイルに保存する
 HISTSIZE=100000                       # メモリ内の履歴の数
 SAVEHIST=100000                       # 保存される履歴の数
 
