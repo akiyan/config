@@ -1,3 +1,7 @@
+cd config
+git submodule init
+git submodule update
+cd ..
 cp config/.gitconfig .
 ln -s config/.gitmodules 
 ln -s config/.screenrc
@@ -5,10 +9,9 @@ ln -s config/.vim
 ln -s config/.vimrc
 ln -s config/.zsh
 ln -s config/.zshrc
+ln -s config/.zshenv
+ln -s config/.oh-my-zsh
 ln -s config/.bash_profile
 ln -s config/.tmux.conf
 ln -s config/.ctags
 ln -s config/.gemrc
-cd config
-git submodule init
-git submodule update
