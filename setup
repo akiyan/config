@@ -3,15 +3,15 @@ git submodule init
 git submodule update
 cd ..
 cp config/.gitconfig .
-ln -s config/.gitmodules 
-ln -s config/.screenrc
-ln -s config/.vim
-ln -s config/.vimrc
-ln -s config/.zsh
-ln -s config/.zshrc
-ln -s config/.zshenv
-ln -s config/.oh-my-zsh
-ln -s config/.bash_profile
-ln -s config/.tmux.conf
-ln -s config/.ctags
-ln -s config/.gemrc
+ln -sf config/.gitmodules 
+ln -sf config/.screenrc
+ln -sf config/.vim
+ln -sf config/.vimrc
+ln -sf config/.zsh
+ln -sf config/.zshrc
+ln -sf config/.zshenv
+ln -sf config/.oh-my-zsh
+ln -sf config/.bash_profile
+ln -sf config/.tmux.conf
+ln -sf config/.ctags
+ln -sf config/.gemrc
