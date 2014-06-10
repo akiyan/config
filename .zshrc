@@ -79,6 +79,7 @@ setopt extended_history               # 履歴ファイルに時刻を記録
 function history-all { history -E 1 } # 全履歴の一覧を出力する
 
 alias s=screen
+alias t=tmux
 setopt NO_beep
 
 # zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する
