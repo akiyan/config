@@ -15,3 +15,4 @@ ln -sf config/.bash_profile
 ln -sf config/.tmux.conf
 ln -sf config/.ctags
 ln -sf config/.gemrc
+vim  +NeoBundleInstall +q
