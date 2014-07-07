@@ -117,4 +117,11 @@ add-zsh-hook precmd _update_vcs_info_msg
 PROMPT="%{${fg[yellow]}%}[${USER}@$%M] %{${fg[white]}%}%~ %1(v|%F{green}%1v%f|)
 %{${reset_color}%}%(!.#.$) "
 
-#
+# ssh-agent
+SOCK="/tmp/ssh-agent-$USER"
+if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]
+then
+  rm -f $SOCK
+  ln -sf $SSH_AUTH_SOCK $SOCK
+  export SSH_AUTH_SOCK=$SOCK
+fi
