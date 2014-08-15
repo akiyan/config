@@ -93,8 +93,10 @@ NeoBundle 'vim-scripts/twilight'
 NeoBundle 'w0ng/vim-hybrid'
 
 if $SUDO_USER == ''
- NeoBundle 'Shougo/neocomplete.vim'
- NeoBundle 'violetyk/neocomplete-php.vim'
+ if has('lua') 
+   NeoBundle 'Shougo/neocomplete.vim'
+   NeoBundle 'violetyk/neocomplete-php.vim'
+  endif
 endif
 "NeoBundle 'JavaScript-syntax'
 "NeoBundle 'PHP-correct-Indenting'
