@@ -163,7 +163,7 @@ set wildignorecase
 " 操作
 set backspace=indent,eol,start
 set ambiwidth=double
-set mouse=a
+"set mouse=a
 set cinkeys=0{,0},0),0#,!^F,o,O,e
 
 " 自動保存
@@ -232,8 +232,10 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 "autocmd FileType html,xhtml,htmlcake set nosmartindent
 
 "HTMLではハイフンは単語の境界にしない
-"autocmd FileType html,xhtml,htmlcacke set iskeyword+=-
+autocmd FileType html,xhtml,htmlcake set iskeyword-=-
 
+"PHPではハイフンは単語の境界にする
+autocmd FileType php,htmlcake set iskeyword-=-
 
 
 autocmd FileType perl set ts=4
