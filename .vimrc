@@ -6,7 +6,14 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+\   'build' : {
+\     'windows' : 'make -f make_mingw32.mak',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\   },
+\ }
 NeoBundle 'akiyan/vim-textobj-php'
 NeoBundle 'akiyan/vim-textobj-erb'
 NeoBundle 'akiyan/vim-textobj-xml-attribute'
@@ -86,8 +93,10 @@ NeoBundle 'vim-scripts/twilight'
 NeoBundle 'w0ng/vim-hybrid'
 
 if $SUDO_USER == ''
- NeoBundle 'Shougo/neocomplete.vim'
- NeoBundle 'violetyk/neocomplete-php.vim'
+ if has('lua') 
+   NeoBundle 'Shougo/neocomplete.vim'
+   NeoBundle 'violetyk/neocomplete-php.vim'
+  endif
 endif
 "NeoBundle 'JavaScript-syntax'
 "NeoBundle 'PHP-correct-Indenting'
