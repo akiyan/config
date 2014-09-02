@@ -56,6 +56,7 @@ source $HOME/.zsh/zaw/zaw.zsh
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export AWS_CONFIG_FILE=$HOME/.aws-config
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
