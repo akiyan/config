@@ -1,0 +1,6 @@
+cd
+ln -s /data/akiyan/Movies .
+ln -s /data/akiyan/Pictures .
+ln -s /data/akiyan/.vagrant.d .
+ln -s /data/akiyan/Downloads .
+ln -s /data/akiyan/Library/iTunes Library/iTunes
