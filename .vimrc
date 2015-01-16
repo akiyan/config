@@ -14,6 +14,7 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \   },
 \ }
+NeoBundle 'Shougo/vimshell'
 NeoBundle 'akiyan/vim-textobj-php'
 NeoBundle 'akiyan/vim-textobj-erb'
 NeoBundle 'akiyan/vim-textobj-xml-attribute'
@@ -208,7 +209,7 @@ noremap k gk
 noremap <C-n> :cnext<Return>
 noremap <C-p> :cprevious<Return>
 noremap <F-3> g&
-noremap <C-s>  :w<Return>
+noremap <C-s>  :VimShellCreate<Return>
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-f>  <C-x><C-o>
