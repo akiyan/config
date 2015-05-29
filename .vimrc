@@ -92,6 +92,12 @@ NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'vim-scripts/rdark'
 NeoBundle 'vim-scripts/twilight'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Chrome'
 
 if $SUDO_USER == ''
  if has('lua') 
@@ -288,6 +294,7 @@ let Tlist_Exit_OnlyWiindow = 1 "taglist が最後のウインドウなら vim �
 "let Tlist_Enable_Fold_Column = 1 " 折り畳み
 map <silent> <leader>tl :TlistToggle<CR>
 let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
+let g:tlist_markdown_settings = 'markdown;h:Headlins'
 
 " neocomplete
 " let g:neocomplete#enable_at_startup = 1
