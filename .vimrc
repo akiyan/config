@@ -79,8 +79,11 @@ NeoBundle 'violetyk/gitquick.vim'
 NeoBundle 'terryma/vim-expand-region'
 "NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'tyru/open-browser.vim'
-NeoBundle 't9md/vim-choosewin'
-NeoBundle 'git@github.com:nanapi/nanapi.vim.git'
+" NeoBundle 't9md/vim-choosewin'
+" NeoBundle 'plasticboy/vim-markdown'
+" NeoBundle 'kannokanno/previm'
+" NeoBundle 'tyru/open-browser.vim'
+" NeoBundle 'violetyk/iikanji-markdown.vim'
 
 "colorschemes
 NeoBundle 'altercation/vim-colors-solarized'
@@ -92,9 +95,6 @@ NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'vim-scripts/rdark'
 NeoBundle 'vim-scripts/twilight'
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
 
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Chrome'
