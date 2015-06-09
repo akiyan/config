@@ -78,12 +78,12 @@ NeoBundle 'violetyk/cake.vim'
 NeoBundle 'violetyk/gitquick.vim'
 NeoBundle 'terryma/vim-expand-region'
 "NeoBundle 'tyru/open-browser-github.vim'
-NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'kannokanno/previm'
+" NeoBundle 'tyru/open-browser.vim'
 " NeoBundle 't9md/vim-choosewin'
 " NeoBundle 'plasticboy/vim-markdown'
-" NeoBundle 'kannokanno/previm'
-" NeoBundle 'tyru/open-browser.vim'
-" NeoBundle 'violetyk/iikanji-markdown.vim'
+NeoBundleFetch 'jszakmeister/markdown2ctags'
+NeoBundle 'violetyk/iikanji-markdown.vim'
 
 "colorschemes
 NeoBundle 'altercation/vim-colors-solarized'
@@ -295,6 +295,22 @@ let Tlist_Exit_OnlyWiindow = 1 "taglist が最後のウインドウなら vim �
 map <silent> <leader>tl :TlistToggle<CR>
 let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
 let g:tlist_markdown_settings = 'markdown;h:Headlins'
+
+" tagbar
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : $HOME . '/.vim/bundle/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+    \ }
 
 " neocomplete
 " let g:neocomplete#enable_at_startup = 1
