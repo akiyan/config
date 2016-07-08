@@ -1,2 +1,2 @@
 sudo apt-get update
-sudo apt-get install -y silversearcher-ag mercurial zsh lua5.2-dev lua5.2 python3.4-dev tmux
+sudo apt-get install -y silversearcher-ag mercurial zsh lua5.2-dev lua5.2 python3.4-dev tmux language-pack-ja-base language-pack-ja

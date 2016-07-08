@@ -237,6 +237,9 @@ autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
 autocmd BufRead,BufNewFile *.thtml set filetype=htmlcake
 autocmd BufWritePost *.php :CheckSyntax
 autocmd BufWritePost *.ctp :CheckSyntax
+autocmd BufRead,BufNewFile *.go set ts=8
+autocmd BufRead,BufNewFile *.go set softtabstop=8
+autocmd BufRead,BufNewFile *.go set shiftwidth=8
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
