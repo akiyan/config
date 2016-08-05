@@ -95,6 +95,7 @@ NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'vim-scripts/rdark'
 NeoBundle 'vim-scripts/twilight'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'fatih/vim-go'
 
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Chrome'
@@ -239,6 +240,7 @@ autocmd BufWritePost *.php :CheckSyntax
 autocmd BufWritePost *.ctp :CheckSyntax
 autocmd BufRead,BufNewFile *.go set ts=8
 autocmd BufRead,BufNewFile *.go set softtabstop=8
+autocmd BufRead,BufNewFile *.go set noexpandtab
 autocmd BufRead,BufNewFile *.go set shiftwidth=8
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
