@@ -14,3 +14,4 @@ ln -sf config/.oh-my-zsh
 ln -sf config/.tmux.conf
 ln -sf config/.ctags
 ln -sf config/.gemrc
+ln -sf config/.agignore
