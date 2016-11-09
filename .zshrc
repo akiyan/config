@@ -80,7 +80,6 @@ function history-all { history -E 1 } # 全履歴の一覧を出力する
 
 alias s=screen
 alias t=tmux
-export LESSCHARSET=utf-8
 setopt NO_beep
 
 # zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する
