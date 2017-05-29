@@ -54,6 +54,7 @@ NeoBundle 'motemen/git-vim'
 NeoBundle 'mrkn256.vim'
 NeoBundle 'naberon/vim-cakehtml'
 NeoBundle 'nishigori/vim-php-dictionary'
+NeoBundle 'stephpy/vim-php-cs-fixer'
 NeoBundle 'othree/html5.vim'
 "NeoBundle 'pangloss/vim-javascript'
 "NeoBundle 'pydave/AsyncCommand'
@@ -72,8 +73,8 @@ NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'SQLUtilities'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'ujihisa/unite-colorscheme'
+"NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'violetyk/cake.vim'
 NeoBundle 'violetyk/gitquick.vim'
 NeoBundle 'terryma/vim-expand-region'
@@ -126,7 +127,7 @@ syntax on
 " インデント
 set autoindent
 set smartindent
-set shiftwidth=2
+set shiftwidth=4
 "set cinkeys="0{,0},0),:,0#,!^F,o,O,e"
 set cinkeys="!^F,o,O,e"
 
@@ -162,8 +163,8 @@ set nobackup
 set noswapfile
 
 " タブ文字の扱い
-set ts=2
-set softtabstop=2
+set ts=4
+set softtabstop=4
 set expandtab
 
 " split動作
@@ -228,6 +229,9 @@ nmap tp :tabp<CR>
 "http://qiita.com/items/bd97a9b963dae40b63f5
 vnoremap <silent> <C-p> "0p<CR>
 map R  <Plug>(operator-replace)
+
+nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 
 " autocmd
 autocmd BufRead,BufNewFile *.t set filetype=perl
@@ -452,6 +456,20 @@ let g:choosewin_overlay_clear_multibyte = 1
 
 " neocomplete-php
 let g:neocomplete_php_locale = 'ja'
+
+"---- php-cs-fixer
+" php-cs-fixerをインストールした場所を指定
+let g:php_cs_fixer_path = "~/php-cs-fixer"
+" psr0 psr1 psr2 allを指定
+let g:php_cs_fixer_level = "all"
+" default sf20 sf21の指定symfonyの指定などの構造確認？が出来る
+let g:php_cs_fixer_config = "default"
+" phpコマンドの場所
+let g:php_cs_fixer_php_path = "php"
+" フィルター（http://cs.sensiolabs.org/ここにしていされているやつが使える）
+let g:php_cs_fixer_fixers_list = ""
+let g:php_cs_fixer_enable_default_mapping = 1
+let g:php_cs_fixer_verbose = 0
 
 " .vimrc_local
 if 1 && filereadable($HOME . '/.vimrc_local')
