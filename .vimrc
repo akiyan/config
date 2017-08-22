@@ -246,6 +246,10 @@ autocmd BufRead,BufNewFile *.go set ts=4
 autocmd BufRead,BufNewFile *.go set softtabstop=4
 autocmd BufRead,BufNewFile *.go set noexpandtab
 autocmd BufRead,BufNewFile *.go set shiftwidth=4
+
+autocmd BufRead,BufNewFile *.js set ts=2
+autocmd BufRead,BufNewFile *.js set softtabstop=2
+autocmd BufRead,BufNewFile *.js set shiftwidth=2
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
