@@ -242,6 +242,11 @@ autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
 autocmd BufRead,BufNewFile *.thtml set filetype=htmlcake
 autocmd BufWritePost *.php :CheckSyntax
 autocmd BufWritePost *.ctp :CheckSyntax
+
+autocmd BufRead,BufNewFile *.php set ts=4
+autocmd BufRead,BufNewFile *.php set softtabstop=4
+autocmd BufRead,BufNewFile *.php set shiftwidth=4
+
 autocmd BufRead,BufNewFile *.go set ts=4
 autocmd BufRead,BufNewFile *.go set softtabstop=4
 autocmd BufRead,BufNewFile *.go set noexpandtab
