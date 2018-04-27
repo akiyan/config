@@ -238,6 +238,7 @@ autocmd BufRead,BufNewFile *.t set filetype=perl
 autocmd BufRead,BufNewFile *.less set filetype=css
 autocmd BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
 autocmd BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
+autocmd BufRead,BufNewFile *.blade.php set filetype=html
 autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
 autocmd BufRead,BufNewFile *.thtml set filetype=htmlcake
 autocmd BufWritePost *.php :CheckSyntax
@@ -255,6 +256,10 @@ autocmd BufRead,BufNewFile *.go set shiftwidth=4
 autocmd BufRead,BufNewFile *.js set ts=2
 autocmd BufRead,BufNewFile *.js set softtabstop=2
 autocmd BufRead,BufNewFile *.js set shiftwidth=2
+
+autocmd BufRead,BufNewFile *.blade.php set ts=2
+autocmd BufRead,BufNewFile *.blade.php set softtabstop=2
+autocmd BufRead,BufNewFile *.blade.php set shiftwidth=2
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif

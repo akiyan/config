@@ -1,0 +1,3 @@
+sudo apt-get update
+sudo apt-get install -y silversearcher-ag mercurial zsh tmux language-pack-ja-base language-pack-ja
+sudo apt-get install -y git build-essential ncurses-dev lua5.2 lua5.2-dev luajit python-dev python3-dev ruby-dev
