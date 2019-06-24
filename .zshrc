@@ -80,6 +80,7 @@ function history-all { history -E 1 } # 全履歴の一覧を出力する
 
 alias s=screen
 alias t=tmux
+alias s4='(){ssh ec2-user@$1 -i ~/.ssh/s4admin.pem}'
 setopt NO_beep
 
 # zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する
@@ -125,3 +126,9 @@ then
   ln -sf $SSH_AUTH_SOCK $SOCK
   export SSH_AUTH_SOCK=$SOCK
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/akiyan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/akiyan/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/akiyan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/akiyan/google-cloud-sdk/completion.zsh.inc'; fi

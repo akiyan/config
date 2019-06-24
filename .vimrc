@@ -86,6 +86,13 @@ NeoBundle 'kannokanno/previm'
 NeoBundleFetch 'jszakmeister/markdown2ctags'
 NeoBundle 'violetyk/iikanji-markdown.vim'
 
+"ruby
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'scrooloose/syntastic'
+
 "colorschemes
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jonathanfilip/vim-lucius'
@@ -307,6 +314,10 @@ let php_parent_error_open = 1
 let g:phpqa_messdetector_autorun = 0 " Don't run messdetector on save (default = 1)
 let g:phpqa_codesniffer_autorun  = 0 " Don't run codesniffer on save (default = 1)
 let g:phpqa_codecoverage_autorun = 0 " Show code coverage on load (default = 0)
+
+" ruby
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_slim_checkers = ['slim_lint']
 
 " ctags.vim
 " via http://loumo.jp/wp/archive/20120421182934/
