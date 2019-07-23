@@ -55,7 +55,7 @@ source $HOME/.zsh/zaw/zaw.zsh
 
 # User configuration
 
-export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.phpenv/bin:$PATH:$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -82,6 +82,7 @@ alias s=screen
 alias t=tmux
 alias s4='(){ssh ec2-user@$1 -i ~/.ssh/s4admin.pem}'
 setopt NO_beep
+setopt NO_AUTO_CD
 
 # zsh で Git の作業コピーに変更があるかどうかをプロンプトに表示する
 function _update_vcs_info_msg() {
@@ -132,3 +133,7 @@ if [ -f '/Users/akiyan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/akiyan/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/akiyan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/akiyan/google-cloud-sdk/completion.zsh.inc'; fi
+
+if [ -f '/Users/akiyan/.phpbrew/bashrc' ]; then
+    source /Users/akiyan/.phpbrew/bashrc
+fi
