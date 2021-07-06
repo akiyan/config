@@ -85,6 +85,7 @@ NeoBundle 'kannokanno/previm'
 " NeoBundle 'plasticboy/vim-markdown'
 NeoBundleFetch 'jszakmeister/markdown2ctags'
 NeoBundle 'violetyk/iikanji-markdown.vim'
+NeoBundle 'leafOfTree/vim-vue-plugin'
 
 "ruby
 NeoBundle 'slim-template/vim-slim'
@@ -258,6 +259,10 @@ autocmd BufRead,BufNewFile *.php set shiftwidth=4
 autocmd BufRead,BufNewFile *.vue set ts=2
 autocmd BufRead,BufNewFile *.vue set softtabstop=2
 autocmd BufRead,BufNewFile *.vue set shiftwidth=2
+
+autocmd BufRead,BufNewFile *.scss set ts=2
+autocmd BufRead,BufNewFile *.scss set softtabstop=2
+autocmd BufRead,BufNewFile *.scss set shiftwidth=2
 
 autocmd BufRead,BufNewFile *.go set ts=4
 autocmd BufRead,BufNewFile *.go set softtabstop=4
@@ -500,6 +505,9 @@ let g:php_cs_fixer_fixers_list = ""
 let g:php_cs_fixer_enable_default_mapping = 1
 let g:php_cs_fixer_verbose = 0
 
+" vim-vue-plugin
+let g:vim_vue_plugin_load_full_syntax = 1
+
 " .vimrc_local
 if 1 && filereadable($HOME . '/.vimrc_local')
   unlet! g:vimrc_local_finish
@@ -508,3 +516,4 @@ if 1 && filereadable($HOME . '/.vimrc_local')
     finish
   endif
 endif
+
