@@ -509,9 +509,6 @@ let g:php_cs_fixer_fixers_list = ""
 let g:php_cs_fixer_enable_default_mapping = 1
 let g:php_cs_fixer_verbose = 0
 
-" vim-vue-plugin
-let g:vim_vue_plugin_load_full_syntax = 1
-
 " .vimrc_local
 if 1 && filereadable($HOME . '/.vimrc_local')
   unlet! g:vimrc_local_finish
