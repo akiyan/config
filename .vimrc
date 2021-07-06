@@ -19,7 +19,7 @@ NeoBundle 'akiyan/vim-textobj-php'
 NeoBundle 'akiyan/vim-textobj-erb'
 NeoBundle 'akiyan/vim-textobj-xml-attribute'
 NeoBundle 'AndrewRadev/linediff.vim'
-NeoBundle 'chrisbra/csv.vim'
+"NeoBundle 'chrisbra/csv.vim'
 NeoBundle 'desert256.vim'
 "NeoBundle 'fholgado/minibufexpl.vim'
 "NeoBundle 'gcmt/wildfire.vim'
@@ -276,6 +276,10 @@ autocmd BufRead,BufNewFile *.js set shiftwidth=2
 autocmd BufRead,BufNewFile *.blade.php set ts=2
 autocmd BufRead,BufNewFile *.blade.php set softtabstop=2
 autocmd BufRead,BufNewFile *.blade.php set shiftwidth=2
+
+autocmd BufRead,BufNewFile *.html set ts=2
+autocmd BufRead,BufNewFile *.html set softtabstop=2
+autocmd BufRead,BufNewFile *.html set shiftwidth=2
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
