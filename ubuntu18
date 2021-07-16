@@ -1,4 +1,6 @@
 sudo apt update
 sudo apt install -y silversearcher-ag mercurial zsh tmux language-pack-ja-base language-pack-ja
-sudo apt install -y git build-essential ncurses-dev lua5.2 lua5.2-dev luajit python-dev python3-dev ruby-dev awscli python3-pip
-sudo pip3 install awsebcli
+sudo apt install -y git build-essential ncurses-dev lua5.2 lua5.2-dev luajit python-dev python3-dev ruby-dev awscli python3-pip nodejs npm
+sudo npm install n -g
+sudo n stable
+sudo apt purge -y nodejs npm
