@@ -247,6 +247,7 @@ autocmd BufRead,BufNewFile *.less set filetype=css
 autocmd BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
 autocmd BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
 autocmd BufRead,BufNewFile *.blade.php set filetype=html
+autocmd BufRead,BufNewFile *.ejs set filetype=html
 autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
 autocmd BufRead,BufNewFile *.thtml set filetype=htmlcake
 autocmd BufWritePost *.php :CheckSyntax
@@ -291,7 +292,7 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 "autocmd FileType html,xhtml,htmlcake set nosmartindent
 
 "HTMLではハイフンは単語の境界にしない
-autocmd FileType html,xhtml,htmlcake set iskeyword-=-
+autocmd FileType html,xhtml,htmlcake,ejs set iskeyword-=-
 
 "PHPではハイフンは単語の境界にする
 autocmd FileType php,htmlcake set iskeyword-=-

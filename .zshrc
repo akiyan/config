@@ -55,7 +55,7 @@ source $HOME/.zsh/zaw/zaw.zsh
 
 # User configuration
 
-export PATH=$HOME/.local/bin:$HOME/.phpenv/bin:$PATH:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.phpenv/bin:$PATH:$HOME/bin:/usr/local/bin:$HOME/.ebcli-virtual-env/executables:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
