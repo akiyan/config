@@ -52,7 +52,6 @@ NeoBundle 'miya0001/vim-dict-wordpress'
 NeoBundle 'mklabs/vim-issues'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'mrkn256.vim'
-NeoBundle 'naberon/vim-cakehtml'
 NeoBundle 'nishigori/vim-php-dictionary'
 NeoBundle 'stephpy/vim-php-cs-fixer'
 NeoBundle 'othree/html5.vim'
@@ -75,7 +74,6 @@ NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'SQLUtilities'
 "NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'violetyk/cake.vim'
 NeoBundle 'violetyk/gitquick.vim'
 NeoBundle 'terryma/vim-expand-region'
 "NeoBundle 'tyru/open-browser-github.vim'
@@ -244,12 +242,8 @@ nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 " autocmd
 autocmd BufRead,BufNewFile *.t set filetype=perl
 autocmd BufRead,BufNewFile *.less set filetype=css
-autocmd BufRead,BufNewFile ~/**/application/views/**/*.php set filetype=htmlcake
-autocmd BufRead,BufNewFile ~/**/views/elements/**/*.php set filetype=htmlcake
 autocmd BufRead,BufNewFile *.blade.php set filetype=html
 autocmd BufRead,BufNewFile *.ejs set filetype=html
-autocmd BufRead,BufNewFile *.ctp set filetype=htmlcake
-autocmd BufRead,BufNewFile *.thtml set filetype=htmlcake
 autocmd BufWritePost *.php :CheckSyntax
 autocmd BufWritePost *.ctp :CheckSyntax
 
@@ -265,11 +259,6 @@ autocmd BufRead,BufNewFile *.scss set ts=2
 autocmd BufRead,BufNewFile *.scss set softtabstop=2
 autocmd BufRead,BufNewFile *.scss set shiftwidth=2
 
-autocmd BufRead,BufNewFile *.go set ts=4
-autocmd BufRead,BufNewFile *.go set softtabstop=4
-autocmd BufRead,BufNewFile *.go set noexpandtab
-autocmd BufRead,BufNewFile *.go set shiftwidth=4
-
 autocmd BufRead,BufNewFile *.js set ts=2
 autocmd BufRead,BufNewFile *.js set softtabstop=2
 autocmd BufRead,BufNewFile *.js set shiftwidth=2
@@ -284,25 +273,16 @@ autocmd BufRead,BufNewFile *.html set shiftwidth=2
 " 前回終了したカーソル行に移動
 " via http://masaoo.blogspot.com/2009/08/ubuntu-vim-vimrc.html
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-" いいかんじにファイルをたどって開く
-" http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
-"autocmd FileType html,xhtml,htmlcake setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
-
-"HTMLのsmartインデントを無効にする.
-"autocmd FileType html,xhtml,htmlcake set nosmartindent
 
 "HTMLではハイフンは単語の境界にしない
-autocmd FileType html,xhtml,htmlcake,ejs set iskeyword-=-
+autocmd FileType html,xhtml,ejs set iskeyword-=-
 
 "PHPではハイフンは単語の境界にする
-autocmd FileType php,htmlcake set iskeyword-=-
+autocmd FileType php set iskeyword-=-
 
 
 autocmd FileType perl set ts=4
 au QuickfixCmdPost make,grep,grepadd,vimgrep copen
-
-" cake.vim
-let g:cakephp_enable_auto_mode = 1
 
 " zencoding-vim
 let g:use_zen_complete_tag = 1
@@ -392,8 +372,6 @@ map <Leader>b :MiniBufExplorer<cr>
 "unite
 nnoremap [unite] :<C-u>Unite<Space>
 "nmap f [unite]
-
-nnoremap [unite]c   :<C-u>Unite cake_controller cake_model cake_config cake_component cake_behavior cake_helper cake_shell cake_fixture cake_core cake_lib n_class -start-insert<CR>
 
 " 自動的にディレクトリを作成する
 " http://vim-users.jp/2011/02/hack202/
