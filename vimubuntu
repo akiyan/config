@@ -1,1 +1,1 @@
-sudo apt-get install -y silversearcher-ag lua5.2-dev lua5.2 python3.4-dev
+sudo apt-get install -y silversearcher-ag lua5.2-dev lua5.2 liblua5.2-dev build-essential cmake vim-nox python3-dev
