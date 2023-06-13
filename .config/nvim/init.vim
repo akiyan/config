@@ -1,12 +1,5 @@
-set nocompatible
-filetype off                   " (1)
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-
-NeoBundle 'Shougo/vimproc', {
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'Shougo/vimproc', {
 \   'build' : {
 \     'windows' : 'make -f make_mingw32.mak',
 \     'cygwin' : 'make -f make_cygwin.mak',
@@ -14,115 +7,115 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \   },
 \ }
-"NeoBundle 'Shougo/vimshell'
-NeoBundle 'akiyan/vim-textobj-php'
-"NeoBundle 'akiyan/vim-textobj-erb'
-NeoBundle 'akiyan/vim-textobj-xml-attribute'
-"NeoBundle 'AndrewRadev/linediff.vim'
-"NeoBundle 'chrisbra/csv.vim'
-NeoBundle 'desert256.vim'
-"NeoBundle 'fholgado/minibufexpl.vim'
-"NeoBundle 'gcmt/wildfire.vim'
-"NeoBundle 'glidenote/memolist.vim'
-"NeoBundle 'gregsexton/gitv'
-"NeoBundle 'grep.vim'
-"NeoBundle 'hail2u/vim-css3-syntax'
-"NeoBundle 'jQuery'
-"NeoBundle 'jelera/vim-javascript-syntax'
-"NeoBundle 'joonty/vim-phpqa.git'
-"NeoBundle 'kana/vim-gf-user'
-"NeoBundle 'kana/vim-gf-diff'
-NeoBundle 'kana/vim-tabpagecd'
-NeoBundle 'kana/vim-textobj-entire'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-syntax'
-NeoBundle 'kana/vim-textobj-line'
-"NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'lukaszb/vim-web-indent'
-" NeoBundle 'alpaca-tc/alpaca_powertabline'
-" NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-NeoBundle 'majutsushi/tagbar'
-"NeoBundle 'matchit.zip'
-"NeoBundle 'mattn/qiita-vim'
-"NeoBundle 'mattn/gist-vim'
-"NeoBundle 'mattn/webapi-vim'
-"NeoBundle 'miya0001/vim-dict-wordpress'
-"NeoBundle 'mklabs/vim-issues'
-"NeoBundle 'motemen/git-vim'
-"NeoBundle 'mrkn256.vim'
-"NeoBundle 'nishigori/vim-php-dictionary'
-"NeoBundle 'stephpy/vim-php-cs-fixer'
-"NeoBundle 'othree/html5.vim'
-"NeoBundle 'pangloss/vim-javascript'
-"NeoBundle 'pydave/AsyncCommand'
-NeoBundle 'rgo/taglist.vim'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'rosenfeld/rgrep.vim'
-"NeoBundle 'sjl/clam.vim'
-"NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'thinca/vim-quickrun'
-"NeoBundle 'thinca/vim-ref'
-"NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-"NeoBundle 'twilight256.vim'
-"NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'vim-scripts/Align'
-"NeoBundle 'vim-scripts/dbext.vim'
-"NeoBundle 'SQLUtilities'
-"NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'ujihisa/unite-colorscheme'
-"NeoBundle 'violetyk/gitquick.vim'
-"NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/open-browser-github.vim'
-"NeoBundle 'kannokanno/previm'
-" NeoBundle 't9md/vim-choosewin'
-" NeoBundle 'plasticboy/vim-markdown'
-"NeoBundleFetch 'jszakmeister/markdown2ctags'
-"NeoBundle 'violetyk/iikanji-markdown.vim'
-"NeoBundle 'leafOfTree/vim-vue-plugin'
+"Plug 'Shougo/vimshell'
+Plug 'akiyan/vim-textobj-php'
+"Plug 'akiyan/vim-textobj-erb'
+Plug 'akiyan/vim-textobj-xml-attribute'
+"Plug 'AndrewRadev/linediff.vim'
+"Plug 'chrisbra/csv.vim'
+"Plug 'fholgado/minibufexpl.vim'
+"Plug 'gcmt/wildfire.vim'
+"Plug 'glidenote/memolist.vim'
+"Plug 'gregsexton/gitv'
+"Plug 'grep.vim'
+"Plug 'hail2u/vim-css3-syntax'
+"Plug 'jQuery'
+"Plug 'jelera/vim-javascript-syntax'
+"Plug 'joonty/vim-phpqa.git'
+"Plug 'kana/vim-gf-user'
+"Plug 'kana/vim-gf-diff'
+Plug 'kana/vim-tabpagecd'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-syntax'
+Plug 'kana/vim-textobj-line'
+"Plug 'kien/ctrlp.vim'
+Plug 'lukaszb/vim-web-indent'
+" Plug 'alpaca-tc/alpaca_powertabline'
+" Plug 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+Plug 'majutsushi/tagbar'
+"Plug 'matchit.zip'
+"Plug 'mattn/qiita-vim'
+"Plug 'mattn/gist-vim'
+"Plug 'mattn/webapi-vim'
+"Plug 'miya0001/vim-dict-wordpress'
+"Plug 'mklabs/vim-issues'
+"Plug 'motemen/git-vim'
+"Plug 'mrkn256.vim'
+"Plug 'nishigori/vim-php-dictionary'
+"Plug 'stephpy/vim-php-cs-fixer'
+"Plug 'othree/html5.vim'
+"Plug 'pangloss/vim-javascript'
+"Plug 'pydave/AsyncCommand'
+Plug 'rgo/taglist.vim'
+Plug 'rking/ag.vim'
+Plug 'rosenfeld/rgrep.vim'
+"Plug 'sjl/clam.vim'
+"Plug 'terryma/vim-multiple-cursors'
+Plug 'thinca/vim-quickrun'
+"Plug 'thinca/vim-ref'
+"Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+"Plug 'twilight256.vim'
+"Plug 'vim-jp/vimdoc-ja'
+Plug 'vim-scripts/Align'
+"Plug 'vim-scripts/dbext.vim'
+"Plug 'SQLUtilities'
+"Plug 'Shougo/unite.vim'
+"Plug 'ujihisa/unite-colorscheme'
+"Plug 'violetyk/gitquick.vim'
+"Plug 'terryma/vim-expand-region'
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
+"Plug 'kannokanno/previm'
+" Plug 't9md/vim-choosewin'
+" Plug 'plasticboy/vim-markdown'
+"PlugFetch 'jszakmeister/markdown2ctags'
+"Plug 'violetyk/iikanji-markdown.vim'
+"Plug 'leafOfTree/vim-vue-plugin'
 
 "ruby
-"NeoBundle 'slim-template/vim-slim'
-"NeoBundle 'tpope/vim-endwise'
-"NeoBundle 'tpope/vim-rails'
-"NeoBundle 'vim-ruby/vim-ruby'
-"NeoBundle 'scrooloose/syntastic'
+"Plug 'slim-template/vim-slim'
+"Plug 'tpope/vim-endwise'
+"Plug 'tpope/vim-rails'
+"Plug 'vim-ruby/vim-ruby'
+"Plug 'scrooloose/syntastic'
 
 "colorschemes
-"NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle 'jonathanfilip/vim-lucius'
-"NeoBundle 'jpo/vim-railscasts-theme'
-"NeoBundle 'nanotech/jellybeans.vim'
-"NeoBundle 'tomasr/molokai'
-"NeoBundle 'vim-scripts/Wombat'
-"NeoBundle 'vim-scripts/rdark'
-"NeoBundle 'vim-scripts/twilight'
-"NeoBundle 'w0ng/vim-hybrid'
-"NeoBundle 'fatih/vim-go'
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'jonathanfilip/vim-lucius'
+"Plug 'jpo/vim-railscasts-theme'
+Plug 'nanotech/jellybeans.vim'
+"Plug 'tomasr/molokai'
+"Plug 'vim-scripts/Wombat'
+"Plug 'vim-scripts/rdark'
+"Plug 'vim-scripts/twilight'
+"Plug 'w0ng/vim-hybrid'
+"Plug 'fatih/vim-go'
 
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Chrome'
 
 if $SUDO_USER == ''
  if has('lua') 
-   NeoBundle 'Shougo/neocomplete.vim'
-   NeoBundle 'violetyk/neocomplete-php.vim'
+   Plug 'Shougo/neocomplete.vim'
+   Plug 'violetyk/neocomplete-php.vim'
   endif
 endif
-"NeoBundle 'JavaScript-syntax'
-"NeoBundle 'PHP-correct-Indenting'
-"NeoBundle 'javascript.vim'
-"NeoBundle 'php.vim'
-"NeoBundle 'shawncplus/phpcomplete.vim'
-NeoBundle 'tomtom/checksyntax_vim'
-"NeoBundle 'tomtom/quickfixsigns_vim'
-"NeoBundle 'vim-scripts/YankRing.vim'
-"NeoBundle 'vim-scripts/php.vim-for-php5'
-"NeoBundle 'vim-scripts/php.vim-html-enhanced'
-"NeoBundle 'vim-scripts/vimgrep.vim'
-"
+"Plug 'JavaScript-syntax'
+"Plug 'PHP-correct-Indenting'
+"Plug 'javascript.vim'
+"Plug 'php.vim'
+"Plug 'shawncplus/phpcomplete.vim'
+Plug 'tomtom/checksyntax_vim'
+"Plug 'tomtom/quickfixsigns_vim'
+"Plug 'vim-scripts/YankRing.vim'
+"Plug 'vim-scripts/php.vim-for-php5'
+"Plug 'vim-scripts/php.vim-html-enhanced'
+"Plug 'vim-scripts/vimgrep.vim'
+call plug#end()
+
 filetype plugin indent on     " (5)
 filetype plugin on
 filetype on
@@ -153,7 +146,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set scrolloff=3
 set display=uhex
 set foldlevel=100
-colorscheme desert256
+colorscheme jellybeans
 
 " 検索
 set incsearch     "インクリメンタルサーチ
@@ -207,7 +200,6 @@ set showcmd
 set hidden
 set vb t_vb= "no beep
 set ttyfast " 高速ターミナル接続を行う
-set ttymouse=xterm2
 set formatoptions=q
 set virtualedit+=block
 
