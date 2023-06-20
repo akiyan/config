@@ -54,7 +54,7 @@ Plug 'rosenfeld/rgrep.vim'
 "Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-quickrun'
 "Plug 'thinca/vim-ref'
-"Plug 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 "Plug 'twilight256.vim'
@@ -146,7 +146,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set scrolloff=3
 set display=uhex
 set foldlevel=100
-colorscheme jellybeans
+colorscheme desert
 
 " 検索
 set incsearch     "インクリメンタルサーチ
