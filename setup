@@ -15,3 +15,4 @@ ln -sf config/.tmux.conf
 ln -sf config/.ctags
 ln -sf config/.gemrc
 ln -sf config/.agignore
+ln -sf config/.config
