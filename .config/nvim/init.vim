@@ -26,6 +26,8 @@ Plug 'vim-scripts/Align'
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'travisjeffery/vim-auto-mkdir'
+
 
 "colorschemes
 Plug 'nanotech/jellybeans.vim'
@@ -222,37 +224,6 @@ let g:phpqa_messdetector_autorun = 0 " Don't run messdetector on save (default =
 let g:phpqa_codesniffer_autorun  = 0 " Don't run codesniffer on save (default = 1)
 let g:phpqa_codecoverage_autorun = 0 " Show code coverage on load (default = 0)
 
-" ruby
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_slim_checkers = ['slim_lint']
-
-" ctags.vim
-" via http://loumo.jp/wp/archive/20120421182934/
-set tags=tags
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_Show_One_File = 1 "現在編集中のソースのタグしか表示しない
-let Tlist_Exit_OnlyWiindow = 1 "taglist が最後のウインドウなら vim を閉じる
-"let Tlist_Enable_Fold_Column = 1 " 折り畳み
-map <silent> <leader>tl :TlistToggle<CR>
-let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
-let g:tlist_markdown_settings = 'markdown;h:Headlins'
-
-" tagbar
-let g:tagbar_type_markdown = {
-    \ 'ctagstype': 'markdown',
-    \ 'ctagsbin' : $HOME . '/.vim/bundle/markdown2ctags/markdown2ctags.py',
-    \ 'ctagsargs' : '-f - --sort=yes',
-    \ 'kinds' : [
-        \ 's:sections',
-        \ 'i:images'
-    \ ],
-    \ 'sro' : '|',
-    \ 'kind2scope' : {
-        \ 's' : 'section',
-    \ },
-    \ 'sort': 0,
-    \ }
-
 " neocomplete
 " let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
@@ -282,22 +253,18 @@ let g:miniBufExplSplitBelow = 0
 let g:miniBufExplAutoOpen = 0
 map <Leader>b :MiniBufExplorer<cr>
 
-"unite
-nnoremap [unite] :<C-u>Unite<Space>
-"nmap f [unite]
-
 " 自動的にディレクトリを作成する
 " http://vim-users.jp/2011/02/hack202/
-augroup vimrc-auto-mkdir  " {{{
-  autocmd!
-  autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
-  function! s:auto_mkdir(dir, force)  " {{{
-    if !isdirectory(a:dir) && (a:force ||
-    \    input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
-      call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
-    endif
-  endfunction  " }}}
-augroup END  " }}}
+" augroup vimrc-auto-mkdir  " {{{
+"   autocmd!
+"   autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
+"   function! s:auto_mkdir(dir, force)  " {{{
+"     if !isdirectory(a:dir) && (a:force ||
+"     \    input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
+"       call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+"     endif
+"   endfunction  " }}}
+" augroup END  " }}}
 
 " 入力モードの時にステータスラインの色を変える。
 let g:hi_insert = 'highlight StatusLine guifg=LightGrey guibg=darkblue gui=none ctermfg=white ctermbg=blue cterm=none'
