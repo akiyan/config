@@ -7,92 +7,28 @@ Plug 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \   },
 \ }
-"Plug 'Shougo/vimshell'
 Plug 'akiyan/vim-textobj-php'
-"Plug 'akiyan/vim-textobj-erb'
 Plug 'akiyan/vim-textobj-xml-attribute'
-"Plug 'AndrewRadev/linediff.vim'
-"Plug 'chrisbra/csv.vim'
-"Plug 'fholgado/minibufexpl.vim'
-"Plug 'gcmt/wildfire.vim'
-"Plug 'glidenote/memolist.vim'
-"Plug 'gregsexton/gitv'
-"Plug 'grep.vim'
-"Plug 'hail2u/vim-css3-syntax'
-"Plug 'jQuery'
-"Plug 'jelera/vim-javascript-syntax'
-"Plug 'joonty/vim-phpqa.git'
-"Plug 'kana/vim-gf-user'
-"Plug 'kana/vim-gf-diff'
 Plug 'kana/vim-tabpagecd'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax'
 Plug 'kana/vim-textobj-line'
-"Plug 'kien/ctrlp.vim'
-Plug 'lukaszb/vim-web-indent'
-" Plug 'alpaca-tc/alpaca_powertabline'
-" Plug 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-Plug 'majutsushi/tagbar'
-"Plug 'matchit.zip'
-"Plug 'mattn/qiita-vim'
-"Plug 'mattn/gist-vim'
-"Plug 'mattn/webapi-vim'
-"Plug 'miya0001/vim-dict-wordpress'
-"Plug 'mklabs/vim-issues'
-"Plug 'motemen/git-vim'
-"Plug 'mrkn256.vim'
-"Plug 'nishigori/vim-php-dictionary'
-"Plug 'stephpy/vim-php-cs-fixer'
-"Plug 'othree/html5.vim'
-"Plug 'pangloss/vim-javascript'
-"Plug 'pydave/AsyncCommand'
-Plug 'rgo/taglist.vim'
+Plug 'othree/html5.vim'
 Plug 'rking/ag.vim'
 Plug 'rosenfeld/rgrep.vim'
-"Plug 'sjl/clam.vim'
-"Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-quickrun'
-"Plug 'thinca/vim-ref'
+Plug 'tomtom/checksyntax_vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-"Plug 'twilight256.vim'
-"Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-scripts/Align'
-"Plug 'vim-scripts/dbext.vim'
-"Plug 'SQLUtilities'
-"Plug 'Shougo/unite.vim'
-"Plug 'ujihisa/unite-colorscheme'
-"Plug 'violetyk/gitquick.vim'
-"Plug 'terryma/vim-expand-region'
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
-"Plug 'kannokanno/previm'
-" Plug 't9md/vim-choosewin'
-" Plug 'plasticboy/vim-markdown'
-"PlugFetch 'jszakmeister/markdown2ctags'
-"Plug 'violetyk/iikanji-markdown.vim'
-"Plug 'leafOfTree/vim-vue-plugin'
-
-"ruby
-"Plug 'slim-template/vim-slim'
-"Plug 'tpope/vim-endwise'
-"Plug 'tpope/vim-rails'
-"Plug 'vim-ruby/vim-ruby'
-"Plug 'scrooloose/syntastic'
+Plug 'leafOfTree/vim-vue-plugin'
 
 "colorschemes
-"Plug 'altercation/vim-colors-solarized'
-"Plug 'jonathanfilip/vim-lucius'
-"Plug 'jpo/vim-railscasts-theme'
 Plug 'nanotech/jellybeans.vim'
-"Plug 'tomasr/molokai'
-"Plug 'vim-scripts/Wombat'
-"Plug 'vim-scripts/rdark'
-"Plug 'vim-scripts/twilight'
-"Plug 'w0ng/vim-hybrid'
-"Plug 'fatih/vim-go'
 
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Chrome'
@@ -103,20 +39,9 @@ if $SUDO_USER == ''
    Plug 'violetyk/neocomplete-php.vim'
   endif
 endif
-"Plug 'JavaScript-syntax'
-"Plug 'PHP-correct-Indenting'
-"Plug 'javascript.vim'
-"Plug 'php.vim'
-"Plug 'shawncplus/phpcomplete.vim'
-Plug 'tomtom/checksyntax_vim'
-"Plug 'tomtom/quickfixsigns_vim'
-"Plug 'vim-scripts/YankRing.vim'
-"Plug 'vim-scripts/php.vim-for-php5'
-"Plug 'vim-scripts/php.vim-html-enhanced'
-"Plug 'vim-scripts/vimgrep.vim'
 call plug#end()
 
-filetype plugin indent on     " (5)
+filetype plugin indent on
 filetype plugin on
 filetype on
 syntax on
@@ -127,6 +52,7 @@ set smartindent
 set shiftwidth=4
 "set cinkeys="0{,0},0),:,0#,!^F,o,O,e"
 set cinkeys="!^F,o,O,e"
+let g:html_indent_inctags = "article,main,section,aside,template"
 
 " 情報表示
 set number "行番号
@@ -276,9 +202,6 @@ au QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 " zencoding-vim
 let g:use_zen_complete_tag = 1
-
-" html5.vim
-
 
 " xでバッファに格納しない
 nnoremap x "_x
