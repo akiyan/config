@@ -1,0 +1,5 @@
+wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+chmod u+x ./sudo mv ./nvim.appimage
+sudo apt remove vim -y
+sudo mv ./nvim.appimage /usr/local/bin/nvim
+sudo ln -s /usr/local/bin/nvim /usr/local/bin/vim
