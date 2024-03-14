@@ -27,6 +27,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'travisjeffery/vim-auto-mkdir'
+Plug 'github/copilot.vim'
 
 "colorschemes
 Plug 'nanotech/jellybeans.vim'
