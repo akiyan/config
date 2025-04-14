@@ -137,3 +137,11 @@ if [ -f '/Users/akiyan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ak
 if [ -f '/Users/akiyan/.phpbrew/bashrc' ]; then
     source /Users/akiyan/.phpbrew/bashrc
 fi
+
+# pnpm
+export PNPM_HOME="/home/akiyan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
