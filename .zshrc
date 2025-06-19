@@ -79,7 +79,7 @@ setopt extended_history               # 履歴ファイルに時刻を記録
 function history-all { history -E 1 } # 全履歴の一覧を出力する
 
 alias s=screen
-alias t=tmux
+alias t="tmux -2"
 alias s4='(){ssh ec2-user@$1 -i ~/.ssh/s4admin.pem}'
 setopt NO_beep
 setopt NO_AUTO_CD
@@ -137,3 +137,15 @@ if [ -f '/Users/akiyan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ak
 if [ -f '/Users/akiyan/.phpbrew/bashrc' ]; then
     source /Users/akiyan/.phpbrew/bashrc
 fi
+
+# pnpm
+export PNPM_HOME="/home/akiyan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+#
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
