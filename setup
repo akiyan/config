@@ -16,3 +16,4 @@ ln -sf config/.ctags
 ln -sf config/.gemrc
 ln -sf config/.agignore
 ln -sf config/.config
+ln -sf config/.config/nvim-lua config/.config/nvim

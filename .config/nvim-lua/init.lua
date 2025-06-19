@@ -15,24 +15,102 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
+-- Make sure to setup `mapleader` and `maplocalleader` before 
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.o.history = 300
+vim.o.wildmenu = true
+vim.o.wildmode = "longest:full,full"
+vim.o.wildignorecase = true
+vim.o.showcmd = true
+vim.o.hidden = true
+vim.o.ttyfast = true
+vim.o.backspace = "indent,eol,start"
+vim.o.encoding = "utf-8"
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+vim.o.expandtab = true
+vim.o.number = true
+vim.o.ruler = true
+vim.o.incsearch = true
+vim.o.hlsearch = true
+vim.o.wrapscan = false
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.backup = false
+vim.o.swapfile = false
+vim.o.list = true
+vim.o.scrolloff = 3
+vim.opt.listchars = {tab='»-', trail='-', eol='↲', extends='»', precedes='«', nbsp='%'}
+vim.opt.whichwrap = "b,s,h,l,<,>,[,]"
+
+-- remap
+vim.keymap.set("n", "tn", ":tabn<CR>", { remap = true, silent = true })
+vim.keymap.set("n", "tp", ":tabp<CR>", { remap = true, silent = true })
+vim.keymap.set("", "x", '"_x')
+
 vim.cmd[[colorscheme desert]]
+
+-- 前回のカーソル位置に復帰する
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local line_count = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= line_count then
+      pcall(vim.api.nvim_win_set_cursor, 0, {mark[1], mark[2]})
+    end
+  end,
+})
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = {
-    -- プラグイン定義ファイルのインポート
-    { import = "plugins" },
+  {'github/copilot.vim'},
+  {'travisjeffery/vim-auto-mkdir'},
+  {'tomtom/tcomment_vim'},
+  {'rking/ag.vim'}, 
+  {'vim-scripts/Align'},
+  {'leafOfTree/vim-vue-plugin'},
+  {
+    'kana/vim-textobj-user',
+    dependencies = {
+      "kana/vim-textobj-entire",
+      "kana/vim-textobj-line",
+      "kana/vim-textobj-syntax",
+    }
   },
+  {'tpope/vim-surround'},
+  {'akiyan/vim-textobj-xml-attribute', dependencies = {'kana/vim-textobj-user'}},
+  {
+    "greggh/claude-code.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- Required for git operations
+    },
+    config = function()
+      require("claude-code").setup()
+    end
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup({
+      })
+    end
+  },
+  -- spec = {
+  --   -- プラグイン定義ファイルのインポート
+  --   { import = "plugins" },
+  -- },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "desert" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
-
