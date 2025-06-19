@@ -1,0 +1,5 @@
+{
+  "claude-code.nvim": { "branch": "main", "commit": "275c47615f4424a0329290ce1d0c18a8320fd8b0" },
+  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
+  "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" }
+}
