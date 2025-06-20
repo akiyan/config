@@ -1,129 +1,5 @@
 set nocompatible
-filetype off                   " (1)
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-
-NeoBundle 'Shougo/vimproc', {
-\   'build' : {
-\     'windows' : 'make -f make_mingw32.mak',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'unix' : 'make -f make_unix.mak',
-\   },
-\ }
-"NeoBundle 'Shougo/vimshell'
-NeoBundle 'akiyan/vim-textobj-php'
-"NeoBundle 'akiyan/vim-textobj-erb'
-NeoBundle 'akiyan/vim-textobj-xml-attribute'
-"NeoBundle 'AndrewRadev/linediff.vim'
-"NeoBundle 'chrisbra/csv.vim'
-NeoBundle 'desert256.vim'
-"NeoBundle 'fholgado/minibufexpl.vim'
-"NeoBundle 'gcmt/wildfire.vim'
-"NeoBundle 'glidenote/memolist.vim'
-"NeoBundle 'gregsexton/gitv'
-"NeoBundle 'grep.vim'
-"NeoBundle 'hail2u/vim-css3-syntax'
-"NeoBundle 'jQuery'
-"NeoBundle 'jelera/vim-javascript-syntax'
-"NeoBundle 'joonty/vim-phpqa.git'
-"NeoBundle 'kana/vim-gf-user'
-"NeoBundle 'kana/vim-gf-diff'
-NeoBundle 'kana/vim-tabpagecd'
-NeoBundle 'kana/vim-textobj-entire'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-syntax'
-NeoBundle 'kana/vim-textobj-line'
-"NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'lukaszb/vim-web-indent'
-" NeoBundle 'alpaca-tc/alpaca_powertabline'
-" NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-NeoBundle 'majutsushi/tagbar'
-"NeoBundle 'matchit.zip'
-"NeoBundle 'mattn/qiita-vim'
-"NeoBundle 'mattn/gist-vim'
-"NeoBundle 'mattn/webapi-vim'
-"NeoBundle 'miya0001/vim-dict-wordpress'
-"NeoBundle 'mklabs/vim-issues'
-"NeoBundle 'motemen/git-vim'
-"NeoBundle 'mrkn256.vim'
-"NeoBundle 'nishigori/vim-php-dictionary'
-"NeoBundle 'stephpy/vim-php-cs-fixer'
-"NeoBundle 'othree/html5.vim'
-"NeoBundle 'pangloss/vim-javascript'
-"NeoBundle 'pydave/AsyncCommand'
-NeoBundle 'rgo/taglist.vim'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'rosenfeld/rgrep.vim'
-"NeoBundle 'sjl/clam.vim'
-"NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'thinca/vim-quickrun'
-"NeoBundle 'thinca/vim-ref'
-"NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-"NeoBundle 'twilight256.vim'
-"NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'vim-scripts/Align'
-"NeoBundle 'vim-scripts/dbext.vim'
-"NeoBundle 'SQLUtilities'
-"NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'ujihisa/unite-colorscheme'
-"NeoBundle 'violetyk/gitquick.vim'
-"NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/open-browser-github.vim'
-"NeoBundle 'kannokanno/previm'
-" NeoBundle 't9md/vim-choosewin'
-" NeoBundle 'plasticboy/vim-markdown'
-"NeoBundleFetch 'jszakmeister/markdown2ctags'
-"NeoBundle 'violetyk/iikanji-markdown.vim'
-"NeoBundle 'leafOfTree/vim-vue-plugin'
-
-"ruby
-"NeoBundle 'slim-template/vim-slim'
-"NeoBundle 'tpope/vim-endwise'
-"NeoBundle 'tpope/vim-rails'
-"NeoBundle 'vim-ruby/vim-ruby'
-"NeoBundle 'scrooloose/syntastic'
-
-"colorschemes
-"NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle 'jonathanfilip/vim-lucius'
-"NeoBundle 'jpo/vim-railscasts-theme'
-"NeoBundle 'nanotech/jellybeans.vim'
-"NeoBundle 'tomasr/molokai'
-"NeoBundle 'vim-scripts/Wombat'
-"NeoBundle 'vim-scripts/rdark'
-"NeoBundle 'vim-scripts/twilight'
-"NeoBundle 'w0ng/vim-hybrid'
-"NeoBundle 'fatih/vim-go'
-
-au BufRead,BufNewFile *.md set filetype=markdown
-let g:previm_open_cmd = 'open -a Chrome'
-
-if $SUDO_USER == ''
- if has('lua') 
-   NeoBundle 'Shougo/neocomplete.vim'
-   NeoBundle 'violetyk/neocomplete-php.vim'
-  endif
-endif
-"NeoBundle 'JavaScript-syntax'
-"NeoBundle 'PHP-correct-Indenting'
-"NeoBundle 'javascript.vim'
-"NeoBundle 'php.vim'
-"NeoBundle 'shawncplus/phpcomplete.vim'
-NeoBundle 'tomtom/checksyntax_vim'
-"NeoBundle 'tomtom/quickfixsigns_vim'
-"NeoBundle 'vim-scripts/YankRing.vim'
-"NeoBundle 'vim-scripts/php.vim-for-php5'
-"NeoBundle 'vim-scripts/php.vim-html-enhanced'
-"NeoBundle 'vim-scripts/vimgrep.vim'
-"
-filetype plugin indent on     " (5)
+filetype plugin indent on
 filetype plugin on
 filetype on
 syntax on
@@ -153,7 +29,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set scrolloff=3
 set display=uhex
 set foldlevel=100
-colorscheme desert256
+colorscheme desert
 
 " 検索
 set incsearch     "インクリメンタルサーチ
@@ -167,8 +43,8 @@ set nobackup
 set noswapfile
 
 " タブ文字の扱い
-set ts=4
-set softtabstop=4
+set ts=2
+set softtabstop=2
 set expandtab
 
 " split動作
@@ -421,77 +297,5 @@ if !has('gui_running')
   set notimeout
   set ttimeout
   set timeoutlen=100
-endif
-
-" 端末上の Vim からローカルにコピーする
-" http://blog.remora.cx/2011/08/yank-to-local-clipboard-from-vim-on-screen.html
-" let g:y2r_config = {
-" \   'tmp_file': expand('$HOME') . '/.vim-exchange-file',
-" \   'key_file': expand('$HOME') . '/.vim-exchange-key',
-" \   'host': 'localhost',
-" \   'port': 52224,
-" \}
-" function! Yank2Remote()
-"     call writefile(split(@", '\n'), g:y2r_config.tmp_file, 'b')
-"     let s:params = ['cat %s %s | nc -w1 %s %s']
-"     for s:item in ['key_file', 'tmp_file', 'host', 'port']
-"         let s:params += [shellescape(g:y2r_config[s:item])]
-"     endfor
-"     let s:ret = system(call(function('printf'), s:params))
-" endfunction
-" nnoremap <silent> <unique> <Leader>y :call Yank2Remote()<CR>
-
-
-
-function! Paste64Copy()
-  let b64 = webapi#base64#b64encode(@")
-  if $TMUX != ""
-    "tmuxのとき
-    let cmd = printf('printf "\x1bPtmux;\x1b\x1b]52;;%s\x1b\x1b\\\\\x1b\\" > /dev/tty', b64)
-  elseif $TERM == "xterm-256color"
-    "GNU Screenのとき
-    let cmd = printf('printf "\x1bP\x1b]52;;%s\x07\x1b\\" > /dev/tty', b64)
-  else
-    let cmd = printf('printf "\x1b]52;;%s\x1b\\" > /dev/tty', b64)
-  endif
-  call system(cmd)
-endfunction
-nnoremap <Leader>y :call Paste64Copy()<CR>
-
-" choosewin
-
-" '-' で呼び出し
-nmap  -  <Plug>(choosewin)
-
-" オーバーレイを使う
-let g:choosewin_overlay_enable = 1
-
-" マルチバイトバッファでオーバーレイフォントを崩さないように
-let g:choosewin_overlay_clear_multibyte = 1
-
-" neocomplete-php
-let g:neocomplete_php_locale = 'ja'
-
-"---- php-cs-fixer
-" php-cs-fixerをインストールした場所を指定
-let g:php_cs_fixer_path = "~/php-cs-fixer"
-" psr0 psr1 psr2 allを指定
-let g:php_cs_fixer_level = "all"
-" default sf20 sf21の指定symfonyの指定などの構造確認？が出来る
-let g:php_cs_fixer_config = "default"
-" phpコマンドの場所
-let g:php_cs_fixer_php_path = "php"
-" フィルター（http://cs.sensiolabs.org/ここにしていされているやつが使える）
-let g:php_cs_fixer_fixers_list = ""
-let g:php_cs_fixer_enable_default_mapping = 1
-let g:php_cs_fixer_verbose = 0
-
-" .vimrc_local
-if 1 && filereadable($HOME . '/.vimrc_local')
-  unlet! g:vimrc_local_finish
-  source ~/.vimrc_local
-  if exists('g:vimrc_local_finish') && g:vimrc_local_finish != 0
-    finish
-  endif
 endif
 
