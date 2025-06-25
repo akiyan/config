@@ -101,6 +101,18 @@ require("lazy").setup({
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('lualine').setup({
+        sections = {
+          lualine_c = {
+            {
+              'filename',
+              path = 1  -- ファイル名に相対パスを表示
+              -- path = 0: ファイル名のみ
+              -- path = 1: 相対パス（例: ./lua/myplugin/init.lua）
+              -- path = 2: 絶対パス（例: /home/user/...）
+              -- path = 3: ファイル名 + プロジェクトルートからの相対パス（LSPルートなど）
+            }
+          }
+        }
       })
     end
   },
