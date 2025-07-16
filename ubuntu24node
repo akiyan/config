@@ -1,0 +1,5 @@
+sudo apt install npm
+sudo npm install -g n
+sudo n stable
+sudo apt purge -y nodejs npm
+sudo npm install -g eslint pnpm

@@ -1,0 +1,15 @@
+[core]
+  pager = less -r
+  editor = nvim
+[color]
+  ui = auto 
+[http]
+	sslVerify = false
+[include]
+  path = .gitconfig.local
+[user]
+	email = akiyan.com@gmail.com
+	name = akiyan
+[url "github:"]
+  pushInsteadOf = https://github.com/
+  pushInsteadOf = git@github.com:
