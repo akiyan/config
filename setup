@@ -10,3 +10,5 @@ ln -sf config/.tmux.conf
 ln -sf config/.agignore
 mkdir -p ~/.config
 ln -sf ~/config/.config/nvim ~/.config/nvim
+touch ~/.zshenv
+ln -sf ~/.zshenv ~/.config/.oh-my-zsh/custom/zshenv.sh
