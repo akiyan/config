@@ -107,6 +107,7 @@ require("lazy").setup({
   {'akiyan/vim-textobj-xml-attribute', dependencies = {'kana/vim-textobj-user'}},
   {
     "coder/claudecode.nvim",
+    lazy = false,
     dependencies = { "folke/snacks.nvim" },
     config = true,
     keys = {
