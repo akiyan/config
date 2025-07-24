@@ -1,9 +1,6 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp config/.gitconfig .
-ln -sf config/.gitmodules 
 ln -sf config/.vim
-ln -sf config/.zsh
-ln -sf config/.zshrc
 ln -sf config/.vimrc
 ln -sf config/.oh-my-zsh
 ln -sf config/.tmux.conf
@@ -11,4 +8,4 @@ ln -sf config/.agignore
 mkdir -p ~/.config
 ln -sf ~/config/.config/nvim ~/.config/nvim
 touch ~/.zshenv
-ln -sf ~/.zshenv ~/.config/.oh-my-zsh/custom/zshenv.sh
+ln -sf ~/.zshenv ~/config/.oh-my-zsh/custom/zshenv.sh
